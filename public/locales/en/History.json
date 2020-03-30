@@ -1,0 +1,12 @@
+{
+  "Title": "MyUni Sample App",
+  "Header1": "Subject",
+  "Header2": "Applicant",
+  "Header3": "Last Updated",
+  "OptionsButton": "Options",
+  "SubmissionsStatus": "Submissions Status",
+  "HTMLOptionButton": "Download MyUni.pdf",
+  "SummaryOptionButton": "Download Summary",
+  "CombinedOptionButton": "Download Combined",
+  "EmptyListMessage": " Create some MyUni transactions and they will start showing up here..."
+}

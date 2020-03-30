@@ -1,0 +1,22 @@
+.card-info-holder {
+  padding: 20px 0;
+  margin-top: -100px;
+  @include media-breakpoint-up(md) {
+    margin-top: -150px;
+  }
+  @include media-breakpoint-up(lg) {
+    margin-top: -300px;
+  }
+
+  .container-fluid {
+    @include media-breakpoint-up(lg) {
+      max-width: 1140px;
+    }
+  }
+
+  .card-info {
+    @include media-breakpoint-down(md) {
+      margin: 0 auto 20px;
+    }
+  }
+}

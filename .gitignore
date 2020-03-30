@@ -1,0 +1,13 @@
+*.pyc
+.idea
+
+# pyenv
+.python-version
+/venv
+
+# Mac/OSX
+.DS_Store
+
+# frontend
+/node_modules
+/build

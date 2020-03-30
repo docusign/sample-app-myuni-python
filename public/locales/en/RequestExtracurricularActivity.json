@@ -1,0 +1,43 @@
+{
+  "Title": "Sing-up for Extracurricular activities",
+  "SubmitInfo": "By having submitted the form, you confirm the further payment of activity. The system will transfer you to the payment form after signing.",
+  "FirstName": "First Name",
+  "LastName": "Last Name",
+  "Email": "Email",
+  "Activity": "Activities",
+  "Activities": [
+    {
+      "category": "Sport",
+      "name": "Basketball",
+      "price": 200
+    },
+    {
+      "category": "Sport",
+      "name": "Socker",
+      "price": 300
+    },
+    {
+      "category": "Sport",
+      "name": "Water Polo",
+      "price": 400
+    },
+    {
+      "category": "Art",
+      "name": "Music",
+      "price": 450
+    }
+  ],
+  "Total": "TOTAL",
+  "SubmitButton": "Proceed with Sigh-Up",
+  "SubmitButtonClicked": "Proceeding...",
+  "Error": {
+    "FirstName": "First Name is required.",
+    "LastName": "Last Name is required.",
+    "Email": "Email is required.",
+    "Activity": "Please select activities."
+  },
+  "ApiDecription": {
+    "SeeMore": "- See behind the scene",
+    "CodeFlow": " <h3>This Sample Features</h3> <br /> Single Signer <br /> DOCX Import <br /> Auto-Place (Anchor) Tab Positioning <br /> Embdedded Signing (Recipient View) <br /> Access Code Authentification <br /> Code Flow:"
+  }
+}

@@ -1,0 +1,8 @@
+.footer {
+  flex-shrink: 0;
+
+  .copyright {
+    font-weight: $font-weight-bold;
+    font-size: 12px;
+  }
+}

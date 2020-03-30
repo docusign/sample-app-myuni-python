@@ -1,0 +1,25 @@
+.table-holder {
+  overflow: auto;
+  @include media-breakpoint-up(lg) {
+    overflow: inherit;
+  }
+}
+
+.table {
+  min-width: 1091px;
+  @include media-breakpoint-up(lg) {
+    min-width: auto;
+  }
+
+  thead {
+    tr {
+      th {
+        padding-bottom: 10px;
+
+        &:first-child {
+          padding-left: 0;
+        }
+      }
+    }
+  }
+}

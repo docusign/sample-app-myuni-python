@@ -1,0 +1,142 @@
+.header {
+  border-top: 8px solid $danger;
+  background-color: $white;
+  box-shadow: 0 9px 39px 0 rgba(147, 147, 147, 0.01);
+
+  .container-fluid {
+    @include media-breakpoint-up(lg) {
+      max-width: 1140px;
+    }
+  }
+
+  .navbar-brand {
+    font-family: $nato-serif;
+    font-weight: $font-weight-bold;
+    @include media-breakpoint-up(lg) {
+      font-size: 32px;
+    }
+  }
+
+  .navbar-brand-image {
+    background-color: $danger;
+    padding: 18px 15px 7px;
+    width: 55px;
+    margin-right: 10px;
+    @include media-breakpoint-up(md) {
+      width: 72px;
+      padding: 25px 17px 11px 17px;
+    }
+
+    img {
+      width: 100%;
+    }
+  }
+
+  .navbar-toggler {
+    border-color: transparent;
+    height: 18px;
+    width: 24px;
+    position: relative;
+    z-index: 3;
+    outline: none;
+
+    &.collapsed {
+      .line {
+        &:nth-child(1) {
+          transform: rotate(0);
+          top: 0;
+        }
+        &:nth-child(2) {
+          opacity: 1;
+        }
+        &:nth-child(3) {
+          transform: rotate(0);
+          bottom: 0;
+        }
+      }
+    }
+
+    .line {
+      transition: 0.3s;
+      width: 24px;
+      height: 2px;
+      position: absolute;
+      z-index: 2;
+      left: 0;
+      background-color: $black;
+
+      &:nth-child(1) {
+        transform: rotate(45deg);
+        top: 7px;
+      }
+
+      &:nth-child(2) {
+        top: 7px;
+        opacity: 0;
+      }
+
+      &:nth-child(3) {
+        transform: rotate(-45deg);
+        bottom: 7px;
+      }
+    }
+  }
+
+  .navbar-collapse {
+    transition: right 0.3s;
+    @include media-breakpoint-down(md) {
+      display: block !important;
+      position: fixed;
+      top: 0;
+      right: -100%;
+      bottom: 0;
+      background-color: $body-bg;
+      width: 220px;
+      height: 100%;
+      padding-top: 60px;
+      z-index: 2;
+    }
+
+    &.show {
+      @include media-breakpoint-down(lg) {
+        right: 0;
+      }
+    }
+  }
+
+  .nav-item {
+    border: 2px solid transparent;
+    position: relative;
+    @include media-breakpoint-up(lg) {
+      font-size: 16px;
+    }
+
+    & .active {
+      // &:before {
+      //   content: "";
+      //   width: 3px;
+      //   background-color: $danger;
+      //   position: absolute;
+      //   top: 0;
+      //   bottom: 0;
+
+      border-left: 3px solid $danger;
+      @include media-breakpoint-up(lg) {
+        // width: auto;
+        // height: 3px;
+        // left: 0;
+        // right: 0;
+        // bottom: 0;
+        // top: auto;
+        border-left: 0;
+        border-bottom: 3px solid $danger;
+      }
+      // }
+    }
+  }
+
+  .nav-link {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}

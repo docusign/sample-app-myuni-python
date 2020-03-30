@@ -1,0 +1,88 @@
+html,
+body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+.content {
+  flex: 1 0 auto;
+}
+
+
+.ovh {
+  overflow: hidden;
+}
+
+a.disabled {
+  color: $gray-500;
+  user-select: none;
+  pointer-events: none;
+}
+
+h1,
+.h1 {
+  font-family: $nato-serif;
+  margin-bottom: 25px;
+  @include media-breakpoint-up(lg) {
+    line-height: 78px;
+    font-size: 4.5rem;
+  }
+}
+
+h2,
+.h2 {
+  line-height: 38px;
+  font-family: $nato-serif;
+  margin-bottom: 20px;
+}
+
+h3,
+.h3 {
+  line-height: 24px;
+  font-family: $nato-serif;
+  margin-bottom: 20px;
+}
+
+h4,
+.h4 {
+  line-height: 22px;
+}
+
+h5,
+.h5 {
+  line-height: 22px;
+}
+
+.overlay {
+  position: fixed;
+  left: 0;
+  height: 100vh;
+  width: 200%;
+  background-color: $black;
+  transition: .5s;
+  z-index: 999999;
+}
+
+.content-section {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  &.container-fluid {
+    max-width: 1140px;
+  }
+}
+
+.bg-prop {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.sub-title {
+  font-size: 24px;
+  line-height: 33px;
+  font-weight: $font-weight-bold;
+}

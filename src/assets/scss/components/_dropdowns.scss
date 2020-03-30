@@ -1,0 +1,19 @@
+.dropdown {
+  .dropdown-toggle {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    color: $danger;
+
+    &:after {
+      color: $gray-900;
+    }
+  }
+
+  .dropdown-item {
+    &:last-child {
+      border: 1px solid transparent;
+      border-top-color: #f0f0f0;
+    }
+  }
+}

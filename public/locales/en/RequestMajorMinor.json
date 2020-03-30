@@ -1,0 +1,23 @@
+{
+  "Title": "Change a Major/Minor Field",
+  "SubmitInfo": " By having submitted the form, you confirm the futher payment of activity. The system will transfer you to the payment form after signing.",
+  "FirstName": "First Name",
+  "LastName": "Last Name",
+  "Email": "Email",
+  "MinorField": "Minor Field",
+  "MajorField": "Maojor Field",
+  "SubmitButton": "Request for Field Change",
+  "SubmitButtonClicked": "Requesting...",
+  "Courses": ["Engeneering", "English", "Mathematics"],
+  "Error": {
+    "FirstName": "First Name is required.",
+    "LastName": "Last Name is required.",
+    "Email": "Email is required.",
+    "MinorField": "Please select a field to change.",
+    "MajorField": "Please select a field to change."
+  },
+  "ApiDecription": {
+    "SeeMore": "- See behind the scene",
+    "CodeFlow": " <h3>This Sample Features</h3> <br /> Single Signer <br /> DOCX Import <br /> Auto-Place (Anchor) Tab Positioning <br /> Embdedded Signing (Recipient View) <br /> Access Code Authentification <br /> Code Flow:"
+  }
+}

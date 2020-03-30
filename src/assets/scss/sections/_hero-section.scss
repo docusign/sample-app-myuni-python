@@ -1,0 +1,18 @@
+.hero-section {
+  text-align: center;
+  padding: 120px 0;
+  min-height: 450px;
+  @include media-breakpoint-up(lg) {
+    padding: 170px 0 285px;
+    min-height: 670px;
+  }
+
+  .h1 {
+    color: $white;
+  }
+
+  .sub-title {
+    color: $white;
+    font-weight: $font-weight-bold;
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "Title": "Request for Unofficial Transcript",
+  "FirstName": "First Name",
+  "LastName": "Last Name",
+  "Email": "Email",
+  "SubmitButton": "Request a Transcript",
+  "SubmitButtonClicked": "Requesting...",
+  "Error": {
+    "FirstName": "First Name is required.",
+    "LastName": "Last Name is required.",
+    "Email": "Email is required."
+  },
+  "ApiDecription": {
+    "SeeMore": "- See behind the scene",
+    "CodeFlow": " <h3>This Sample Features</h3> <br /> Single Signer <br /> DOCX Import <br /> Auto-Place (Anchor) Tab Positioning <br /> Embdedded Signing (Recipient View) <br /> Access Code Authentification <br /> Code Flow:"
+  },
+  "Transcript": {
+    "TermsName": "Terms of Transcript",
+    "DisplayName": "Terms of viewing an unofficial transcript",
+    "TermsTranscript": "Please note that what you see is not an official version of your transcript."
+  }
+}
