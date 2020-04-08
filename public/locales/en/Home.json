@@ -1,26 +1,26 @@
 {
   "Header1": "Welcome to MyUni",
-  "Header2": "Students Portal - For all your Student Needs",
-  "Footer1": "DocuSign: The easiest way to get things done",
-  "Footer2": "<p>The most reliable and globally trusted service for electronic signatures and approvals. Over 200 million users worldwide</p>",
+  "Header2": "Self-Service Student Portal",
+  "Footer1": "DocuSign: It's time to agree better",
+  "Footer2": "<p>DocuSign helps organizations connect and automate how they prepare, sign, act on and manage agreements.</p>",
   "SandBoxButton": "Create Sandbox",
   "LearnMoreButton": "Learn More",
   "Card1": {
-    "Title": "Change <br /> a Major/Minor Field",
-    "Description": "Submit a form requesting changes to your major and/or minor fields of study.",
-    "Features": "<h4 class='h4 card-info-list-title'>DocuSign Features:</h4><ul class='custom-list'><li>Single Signer</li><li>DOCX Import</li><li>Auto-Place (Anchor) Positioning</li><li>Tabs are where data is entered by a signer</li><li>Embedded Signing</li><li>Sign without leaving the website</li></ul>",
+    "Title": "Change Your <br />Major or Minor",
+    "Description": "Request changes to your major and/or minor fields of study.",
+    "Features": "<h4 class='h4 card-info-list-title'>DocuSign features:</h4><ul class='custom-list'><li>Update recipient information</li><li>Create envelope from HTML Import</li><li>Fill tab data</li><li>Embedded signing (recipient view)</li></ul>",
     "Button": "Get Started"
   },
   "Card2": {
-    "Title": "Request <br /> for Unofficial Transcript",
-    "Description": "Get your unofficial transcript in seconds.",
-    "Features": "<h4 class='h4 card-info-list-title'>DocuSign Features:</h4><ul class='custom-list'><li>Send from a Template</li><li>Multiple Signers</li><li>Multiple Documents</li><li>Calculated (Formula) Tabs</li></ul>",
+    "Title": "Request <br /> an Unofficial Transcript",
+    "Description": "Get an unofficial copy of your most recent transcript.",
+    "Features": "<h4 class='h4 card-info-list-title'>DocuSign features:</h4><ul class='custom-list'><li>Creating a clickwrap<li>Embedding a clickwrap on your site</li></ul>",
     "Button": "Get Started"
   },
   "Card3": {
-    "Title": "Sign-up <br /> for Extracurricular Activities",
-    "Description": "One stop shop for all your non-academics passions.",
-    "Features": "<h4 class='h4 card-info-list-title'>DocuSign Features:</h4><ul class='custom-list'><li>Sign & Initial Tabs</li><li>Custom Branding</li><li>Optional Signer Attachments</li><li>Routing Order</li><li>Image/PNG document</li><li>Complex Document Visibility</li></ul>",
+    "Title": "Sign Up for <br />Extracurricular Activities",
+    "Description": "One-stop shop for all your non-academic passions.",
+    "Features": "<h4 class='h4 card-info-list-title'>DocuSign features:</h4><ul class='custom-list'><li>Update recipient information<li>Create envelope from HTML import<li>Fill tab data<li>Embedded signing (recipient view)<li>Request payment</li></ul>",
     "Button": "Get Started"
   }
 }

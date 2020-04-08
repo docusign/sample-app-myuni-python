@@ -1,43 +1,43 @@
 {
   "Title": "Signing Complete!",
-  "SigningMessage": "<p>You have signed the document! The document will be securely stored on the DocuSign, Inc. servers.</p>",
+  "SigningMessage": "<p>You have signed the document. It will be securely stored on the DocuSign, Inc. servers.</p>",
   "BackLink": "Back to Home",
   "StatusLink": "View My Submissions",
-  "SandboxText": "<h4>Get Started with the DocuSign API Today</h4>",
-  "SandboxButton": "Get Your Sandbox",
-  "Description": "<p>  <br></br>  With the Developer Sandbox you can test our APIs for free!  Sandbox accounts do not expire and have Enterprise level  features enabled.</p>",
+  "SandboxText": "<h4>Get Started with the DocuSign APIs Today</h4>",
+  "SandboxButton": "GET YOUR SANDBOX",
+  "Description": "<p>  <br></br>With the DocuSign developer sandbox, you can test our APIs for free! Sandbox accounts do not expire and have Enterprise-level features enabled.</p>",
   "SigningReturnEvents": "Possible Signing Return Events",
   "LearnAbout": "Learn more about Embedded Signing",
   "SigningCompleteEvent": {
     "Name": "signing_complete",
-    "Decription": "The recipient has signed the document! The document will be  securely stored on the DocuSign, Inc. servers."
+    "Decription": "The recipient has signed the document. It will be securely stored on the DocuSign, Inc. servers."
   },
   "DeclineEvent": {
     "Name": "decline",
-    "Decription": "The recipient declined to sign the document. This has VOIDED the  document."
+    "Decription": "The recipient declined to sign the document. This has VOIDED the document."
   },
   "CancelEvent": {
     "Name": "cancel",
-    "Decription": " The recipient decides to finish later. The clicked 'Finish  Later' instead of 'Decline to Sign'"
+    "Decription": "The recipient has postponed signing. They clicked <b>Finish Later</b> instead of <b>Decline to Sign</b>."
   },
   "ExceptionEvent": {
     "Name": "exception",
-    "Decription": "An exception has occurred on the server during the signing  session. Please check the parameters passed to the Web Service  Methods."
+    "Decription": "An exception has occurred on the server during the signing session. Please check the parameters passed to the web service methods."
   },
   "FaxPendingEvent": {
     "Name": "fax_pending",
-    "Decription": "Recipient has a fax pending."
+    "Decription": "The recipient has a fax pending."
   },
   "TtlExpiredEvent": {
     "Name": "ttl_expired",
-    "Decription": "The token was not used within the timeout period or the token  was already accessed."
+    "Decription": "The token was not used within the timeout period, or the token had been already accessed."
   },
   "ViewingCompleteEvent": {
     "Name": "viewing_complete",
-    "Decription": "The recipient did not need to sign but has completed the viewing  ceremony."
+    "Decription": "The recipient did not need to sign, but has completed the viewing ceremony."
   },
   "SessionTimeoutEvent": {
     "Name": "session_timeout",
-    "Decription": "The recipient did not sign the document in time. The timeout is  set to 20 minutes."
+    "Decription": "The recipient did not sign the document in time. The timeout is set to 20 minutes."
   }
 }

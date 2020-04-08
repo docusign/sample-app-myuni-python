@@ -9,7 +9,7 @@ const Layout = props => {
   return (
     <>
       <Helmet>
-        <title>{t("Title")}</title>
+        <title>{t("MyUni DocuSign Sample Application")}</title>
         <meta name="description" content={t("MetaDescription")}/>
       </Helmet>
       <Header />

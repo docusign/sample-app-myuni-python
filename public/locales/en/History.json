@@ -3,10 +3,10 @@
   "Header1": "Subject",
   "Header2": "Applicant",
   "Header3": "Last Updated",
-  "OptionsButton": "Options",
+  "OptionsButton": "Options:",
   "SubmissionsStatus": "Submissions Status",
-  "HTMLOptionButton": "Download MyUni.pdf",
-  "SummaryOptionButton": "Download Summary",
-  "CombinedOptionButton": "Download Combined",
-  "EmptyListMessage": " Create some MyUni transactions and they will start showing up here..."
+  "HTMLOptionButton": "Download signed document",
+  "SummaryOptionButton": "Download summary",
+  "CombinedOptionButton": "Download combined PDF",
+  "EmptyListMessage": "Once you begin creating MyUni transactions, you'll be able to check their status here and download the documents they generate..."
 }

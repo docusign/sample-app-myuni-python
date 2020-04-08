@@ -1,9 +1,7 @@
 {
   "ApplicationName": "MyUni",
-  "Title": "MyUni",
-  "MetaDescription": "MyUni App",
   "TransactionHistoryLink": "Status",
-  "GitHubLink": "GitHub Sourse",
+  "GitHubLink": "GitHub Source",
   "AboutLink": "About",
-  "Copyright": "© 2019 DocuSign Inc."
+  "Copyright": "© 2020 DocuSign Inc."
 }

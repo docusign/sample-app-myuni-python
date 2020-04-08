@@ -1,6 +1,6 @@
 {
-  "Title": "Sing-up for Extracurricular activities",
-  "SubmitInfo": "By having submitted the form, you confirm the further payment of activity. The system will transfer you to the payment form after signing.",
+  "Title": "Sign Up for Extracurricular Activities",
+  "SubmitInfo": "By completing the form, you agree to pay for the activity. The system will transfer you to the payment form after signing.",
   "FirstName": "First Name",
   "LastName": "Last Name",
   "Email": "Email",
@@ -13,7 +13,7 @@
     },
     {
       "category": "Sport",
-      "name": "Socker",
+      "name": "Soccer",
       "price": 300
     },
     {
@@ -25,19 +25,24 @@
       "category": "Art",
       "name": "Music",
       "price": 450
+    },
+    {
+      "category": "Art",
+      "name": "Painting",
+      "price": 350
     }
   ],
   "Total": "TOTAL",
-  "SubmitButton": "Proceed with Sigh-Up",
+  "SubmitButton": "PROCEED WITH SIGN-UP",
   "SubmitButtonClicked": "Proceeding...",
   "Error": {
-    "FirstName": "First Name is required.",
-    "LastName": "Last Name is required.",
+    "FirstName": "First name is required.",
+    "LastName": "Last name is required.",
     "Email": "Email is required.",
     "Activity": "Please select activities."
   },
   "ApiDecription": {
-    "SeeMore": "- See behind the scene",
-    "CodeFlow": " <h3>This Sample Features</h3> <br /> Single Signer <br /> DOCX Import <br /> Auto-Place (Anchor) Tab Positioning <br /> Embdedded Signing (Recipient View) <br /> Access Code Authentification <br /> Code Flow:"
+    "SeeMore": "- See behind the scenes",
+    "CodeFlow": "<h4>This sample features:</h4><ul><li>Update recipient information<li>Create envelope from HTML import<li>Fill tab data<li>Embedded signing (recipient view)<li>Request payment</li></ul><p><strong>Note</strong>: This scenario uses <a href=\"https://www.docusign.com/products/payments\">DocuSign Payments</a>. To complete the transaction, you will need to set up a <a href=\"https://support.docusign.com/en/guides/managing-payment-gateways\">payment gateway</a> on your account. </p><h4>Code flow:</h4><h5>Step 1</h5><p>When the form is submitted, we use the <a href=\"https://developers.docusign.com/esign-rest-api/reference/Envelopes/Envelopes/create\">Envelopes: create</a> method to send the signature request with the corresponding form information. The envelope we construct contains a <code>document</code> object, a <code>recipient</code> object of type <code>signer</code>, and <code>tabs,</code> which contain the form fields information. Since we are using embedded signing, we must also set the <code>clientUserId</code> property on the recipient.</p><p>We place the tabs on the document by specifying a <code>SignHereTab</code> element and a <code>PaymentTab</code> element as part of the <code>signer</code> element. The tab elements are positioned using <em>x/y</em> coordinates on the <code>document</code>.</p><p>The <code>PaymentTab</code> serves two purposes. It is used both to display the amount due in the document and to instruct DocuSign to proceed to collect payments after the document is signed.</p><p>Lastly, we include the status \"sent\" in the request so that the envelope is sent for signing. The eSignature REST API request is sent to the following endpoint:</p><pre>POST /v2.1/accounts/{accountId}/envelopes</pre><h5>Step 2</h5><p>To enable embedded signing of the envelope inside our application, we next use the <a href=\"https://developers.docusign.com/esign-rest-api/reference/Envelopes/EnvelopeViews/createRecipient\">EnvelopeViews: createRecipient</a> method to generate a signing URL for the recipient. For this to work, the <code>clientUserId</code> property must be set on the recipient when the envelope is sent during step 1 above.</p><p>Once the envelope is sent, we save the envelope ID and recipient information to our session. Then, we retrieve the envelope ID and recipient info from our session and create the recipient view by generating the URL and displaying the recipient view in a full-width and full-height iframe inside our page.</p><p>To create the recipient view of the envelope, we send an API request to:</p><pre>POST /v2.1/accounts/{accountId}/envelopes/{envelopeId}/views/recipient</pre>"
   }
 }
