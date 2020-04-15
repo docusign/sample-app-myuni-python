@@ -127,3 +127,10 @@ Then add the payment gateway account id to the **.env** file.
 
 ### License
 This repository uses the MIT License. See the [LICENSE](./LICENSE) file for more information.
+
+### Additional Resources
+* [DocuSign Developer Center](https://developers.docusign.com)
+* [DocuSign API on Twitter](https://twitter.com/docusignapi)
+* [DocuSign For Developers on LinkedIn](https://www.linkedin.com/showcase/docusign-for-developers/)
+* [DocuSign For Developers on YouTube](https://www.youtube.com/channel/UCJSJ2kMs_qeQotmw4-lX2NQ)
+
