@@ -1,6 +1,7 @@
 # Python and React: Education Application Example
 
-### Github repo: Sigma-EducationApp
+### GitHub repo: sample-app-myuni-python
+Visit [MyUni sample application](https://myunisample.esigndemos.com/) on DoucSign to see this code publicly hosted
 ## Introduction
  This repo is a Python 3.7 on the server side and React on the frontend application that demonstrates:
 
