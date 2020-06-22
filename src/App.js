@@ -1,4 +1,4 @@
-import React, { Suspense } from "react";
+import React, { Suspense, useState, useEffect } from "react";
 import { Route, Switch } from "react-router-dom";
 import Layout from "./components/Layout";
 import { About } from "./features/About";
@@ -8,9 +8,30 @@ import { RequestMajorMinorChangePage } from "./features/RequestMajorMinorChange"
 import { RequestTranscriptPage } from "./features/RequestTranscript";
 import { RequestExtracurricularActivityPage } from "./features/RequestExtracurricularActivity";
 import { SigningComplete } from "./components/SigningComplete.js";
+import { logOut, getStatus } from "./api/auth";
+import { Callback } from "./components/Callback";
+import history from "./api/history";
 import "./assets/scss/main.scss";
+import LoggedUserContext from "./contexts/logged-user/logged-user.context";
+
 
 const App = () => {
+  const [ logged, setLogged ] = useState(false);
+  const [ redirectUrl, setRedirectUrl ] = useState("/");
+  const [ showAlert, setShowAlert ] = useState(false);
+  const [ showJWTModal, setShowJWTModal] = useState(false);
+  const [ authType, setAuthType ] = useState(undefined);
+
+  useEffect(() => {
+    getStatus(setLogged, setAuthType);
+  }, []);
+
+  async function handleLogOut() {
+    await logOut();
+    history.push("/");
+    await getStatus(setLogged, setAuthType);
+  }
+
   const routes = (
     <Switch>
       <Route path="/history" component={History} />
@@ -26,11 +47,20 @@ const App = () => {
       />
       <Route path="/" exact component={Home} />
       <Route path="/signing_complete" component={SigningComplete} />
+      <Route path="/callback" component={Callback}/>
+      <Route path="/logout" render={() => {
+        handleLogOut();
+      }} />
     </Switch>
   );
+
   return (
     <Suspense fallback="">
-      <Layout>{routes}</Layout>
+      <LoggedUserContext.Provider value={{ logged, setLogged, redirectUrl, setRedirectUrl, 
+                                          showAlert, setShowAlert, showJWTModal, setShowJWTModal, 
+                                          authType, setAuthType}}>
+        <Layout>{routes}</Layout>
+      </LoggedUserContext.Provider>
     </Suspense>
   );
 };

@@ -15,7 +15,7 @@ class Envelope:
         Returns:
             envelope_id (str): envelope ID
         """
-        # Call Envelopes create API method
+        # Call Envelope API create method
         # Exceptions will be caught by the calling function
         ds_client = DsClient.get_instance()
         envelope_api = EnvelopesApi(ds_client.api_client)
@@ -37,7 +37,7 @@ class Envelope:
         Returns:
             URL to the recipient view UI
         """
-        # Create the Recipient View request object
+        # Create the RecipientViewRequest object
         recipient_view_request = RecipientViewRequest(
             authentication_method=authentication_method,
             client_user_id=envelope_args['signer_client_id'],
@@ -46,7 +46,7 @@ class Envelope:
             user_name=f"{student['first_name']} {student['last_name']}",
             email=student['email']
         )
-        # Obtain the recipient_view_url for the signing ceremony
+        # Obtain the recipient view URL for the signing ceremony
         # Exceptions will be caught by the calling function
         ds_client = DsClient.get_instance()
         envelope_api = EnvelopesApi(ds_client.api_client)

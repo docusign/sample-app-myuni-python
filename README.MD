@@ -1,137 +1,105 @@
-# Python and React: Education Application Example
+# Python and React: MyUni Education Sample Application
 
-### GitHub repo: sample-app-myuni-python
-Visit [MyUni sample application](https://myunisample.esigndemos.com/) on DoucSign to see this code publicly hosted
+### Github repo: MyUniSampleApp
+
 ## Introduction
- This repo is a Python 3.7 on the server side and React on the frontend application that demonstrates:
+MyUni is a DocuSign sample application written in Python 3.7 (server) and React (client). You can find a live instance running at [https://myunisample.esigndemos.com/](https://myunisample.esigndemos.com/).
+ 
+MyUni demonstrates the following:
 
-* Authentication with DocuSign via the
-[JSON Web Token (JWT) Grant](https://developers.docusign.com/esign-rest-api/guides/authentication/oauth2-jsonwebtoken).
-
-1. **Reguest Minor/Major Change.**
-   [Source.](./app/api/requests.py)
-   This example sends an envelope based on HTML template with filled-in user data and then initiate embedded signing ceremony for single signer.
-   The DocuSign signing ceremony is initiated from your website.
-   Anchor text ([AutoPlace](https://support.docusign.com/en/guides/AutoPlace-New-DocuSign-Experience)) is used to position the signing fields in the documents.
-1. **View an Unofficial Transcript.**
-   [Source.](./app/api/clickwrap.py)
-   This example demonstates usage of Click API.
-   So right after form submission confirmation popup received from DocuSign API appears. 
-   And only after it's confirmation user is able to download an unofficial transcript.
+1. Authentication with DocuSign via [JSON Web Token (JWT) Grant](https://developers.docusign.com/esign-rest-api/guides/authentication/oauth2-jsonwebtoken).
+2. **Change Your Major or Minor:** ([Source](./app/api/requests.py))  
+   This example uses the DocuSign [eSignature REST API](https://developers.docusign.com/esign-rest-api) to send an envelope based on an HTML template with prefilled user data and then initiate an embedded signing ceremony for a single signer. ([AutoPlace](https://support.docusign.com/en/guides/AutoPlace-New-DocuSign-Experience)) anchor text is used to position the signing fields in the documents.
+3. **Request an Unofficial Transcript:** ([Source](./app/api/clickwrap.py))  
+   This example demonstates the DocuSign [Click API](https://developers.docusign.com/click-api/guides). Once the user submits the form, the app uses a clickwrap to present a modal dialog requesting confirmation before allowing the user to download an unofficial transcript.
    [More information about ClickAPI](https://developers.docusign.com/click-api) 
-1. **Register for Extra-Curricular Activity.**
-   [Source.](./app/api/requests.py)
-   This example demonstrate how to use Envelopes combined with Payment Gateways.
-   Example send an envelope based on HTML template and in addition add payment feature to the document.
-   So after signing user will be able to pay for signed feature. 
+4. **Sign Up for Extracurricular Activities:** ([Source](./app/api/requests.py))  
+   This example uses the DocuSign [eSignature REST API](https://developers.docusign.com/esign-rest-api), demonstrating how to use envelopes combined with payment gateways. The example sends an envelope based on HTML template and adds payment feature to the document, so after signing, the user will be able to pay for their chosen activity.  
    To use this example, create a test payments gateway for your developer sandbox account.
 
 ## Installation
 
 ### Prerequisites
-1. A DocuSign Developer Sandbox account (email and password) on [demo.docusign.net](https://demo.docusign.net).
-   Create a [free account](https://go.docusign.com/sandbox/productshot/?elqCampaignId=16535).
-1. A DocuSign Integration Key (a client ID) that is configured to use the
-   JSON Web Token (JWT) Grant.
-   You will need the **Integration Key** itself, and its **RSA Keypair**.
-   
-   To use application you have to add DNS name of the server **Redirect URI** to your Integration key.
-   
-   This [**video**](https://www.youtube.com/watch)
-   demonstrates how to create an Integration Key (client id) for a
-   user application like this example. 
 
-1. Python 3.7.
-1. [venv](https://docs.python.org/3/library/venv.html#module-venv).
-1. [Node.js](https://nodejs.org/) v10+.
+* A DocuSign developer sandbox account. Create a [free account](https://go.docusign.com/sandbox/productshot/?elqCampaignId=16535).
+* A DocuSign integration key (a client ID) that is configured to use JSON Web Token (JWT) Grant.
+   You will need the **integration key** itself and its **RSA key pair**. To use this application, you must add your application's **Redirect URI** to your integration key. This [**video**](https://www.youtube.com/watch?v=GgDqa7-L0yo) demonstrates how to create an integration key (client ID) for a user application like this example. 
+* [Python 3.7+](https://www.python.org/downloads/)
+* [venv](https://docs.python.org/3/library/venv.html#module-venv)
+* [Node.js](https://nodejs.org/) v10+
 
-### Required Environment Variables
-**DS_CLIENT_ID** - Integrator Key is the same as client id 
-**DS_IMPERSONATED_USER_GUID** - API Account ID
-**DS_TARGET_ACCOUNT_ID** - Target account id. Use FALSE to indicate that the user's default
-**DS_PAYMENT_GATEWAY_ID** - Payment Gateway ID (Only Stripe method supported)
-**DS_PAYMENT_GATEWAY_NAME** - Payment Gateway Name
-**DS_PAYMENT_GATEWAY_DISPLAY_NAME** - Payment Gateway Display Name
-**DS_PRIVATE_KEY** - Private key string - source or path, for instance: /app/id_rsa
-**REACT_APP_DS_RETURN_URL** - URL where backend of the Application is located (if you run it locally - http://localhost:3000)
-**REACT_APP_API_BASE_URL** - URL of the Frontend. Will be used by Docusign to redirect back after signing ceremony. (if you run it locally - http://localhost:5001/api)
-**REACT_APP_DS_AUTH_SERVER** - The DS Authentication server (for testing purposes use - https://account-d.docusign.com)
-**REACT_APP_DS_DEMO_SERVER** - Link to Demo Docusing Server (for testing purposes use - https://demo.docusign.net)
-**REACT_APP_DS_CLICKWRAP_URL** - Link to the hosted Clickwrap Client (for testing purposes use - `//demo.docusign.net/clickapi/sdk/latest/docusign-click.js`)
+### Required environment variables
+
+* **DS_CLIENT_ID** - The integration key is the same as the client ID
+* **DS_CLIENT_SECRET** - Integration Secret Key
+* **DS_IMPERSONATED_USER_GUID** - API account ID
+* **DS_TARGET_ACCOUNT_ID** - Target account ID. Use FALSE to indicate the user's default
+* **DS_PAYMENT_GATEWAY_ID** - Payment gateway ID (Only Stripe method supported)
+* **DS_PAYMENT_GATEWAY_NAME** - Payment gateway name
+* **DS_PAYMENT_GATEWAY_DISPLAY_NAME** - Payment gateway display name
+* **DS_PRIVATE_KEY** - Private key string, source or path; for instance: /app/id_rsa
+* **REACT_APP_DS_RETURN_URL** - URL where the back end of the application is located (If you run it locally, use `http://localhost:3000`)
+* **REACT_APP_API_BASE_URL** - URL where the front end of the application is located; will be used by Docusign to redirect back after signing ceremony (If you run it locally, use `http://localhost:5001/api`)
+* **REACT_APP_DS_AUTH_SERVER** - The DocuSign authentication server (for testing purposes, use `https://account-d.docusign.com`)
+* **REACT_APP_DS_DEMO_SERVER** - Link to the DocuSign demo server (for testing purposes, use `https://demo.docusign.net`)
+* **REACT_APP_DS_CLICKWRAP_URL** - Link to the hosted clickwrap client (for testing purposes, use `//demo.docusign.net/clickapi/sdk/latest/docusign-click.js`)
 
 ### Installation steps
-**Manually**
-1. Download or clone this repository to your workstation to directory **Sigma-InsuranceApp**
-1. **`cd Sigma-InsuranceApp`** directory
-1. Install python packages **`pip install -r requirements.txt`**
-1. Install react dependencies using [npm](https://www.npmjs.com/) package manager  **npm install**
-1. Update the **.env** file with the Integration Key and other settings.
 
-   **Note:** Protect your Integration Key and secret--you
-   should ensure that **.env** file will not be stored in your source code
-   repository.
+**Manual**
+
+1. Download or clone this repository to your workstation to directory **sample-app-myuni-python**
+2. Navigate to that folder: **`cd sample-app-myuni-python`** directory
+3. Install python packages **`pip install -r requirements.txt`**
+4. Install React dependencies using [npm](https://www.npmjs.com/) package manager  **npm install**
+5. Update the **.env** file with the integration key and other settings.  
+     > **Note:** Protect your integration key and client secret. You should make sure that your **.env** file will not be stored in your source code repository.
 
 **Using installation scripts**
-1. Download or clone this repository to your workstation to directory **Sigma-InsuranceApp**
-1. **`cd Sigma-InsuranceApp/scripts`**
-1. **`./install.sh`**
-1. Update the **.env** file with the Integration Key and other settings.
 
-   **Note:** Protect your Integration Key and secret--you
-   should ensure that **.env** file will not be stored in your source code
-   repository.
+1. Download or clone this repository to your workstation in the folder **sample-app-myuni-python**.
+2. Navigate to the scripts subfolder: **`cd sample-app-myuni-python/scripts`**
+3. Run the installation script: **`./install.sh`**
+4. Update the **.env** file with the integration key and other settings.  
+    > **Note:** Protect your integration key and client secret. You should make sure that your **.env** file will not be stored in your source code repository.
+
+### Additional installation scripts
+All installation scripts are located in the **scripts** folder.
+1. To stop the application, run **`./stop.sh`**
+1. To remove the virtual environment and modules, run **`./clean.sh`**
    
-### Running
-**Manually**
-1. **`cd Sigma-InsuranceApp`**
-1. **`flask run --port 5001`**
-1. **`npm start`**
-1. Open a browser to **http://localhost:3000**
+## Running MyUni
 
-**Using installation scripts**
-All installation scripts located in **scripts** folder.
-1. **`cd scripts`**
-1. **`./run.sh`**
-1. Open a browser to **http://localhost:3000**
+### Manual
 
-### Additional instalation scripts
-All installation scripts located in **scripts** folder.
-1. To stop application run **`./stop.sh`**
-1. To remove virtual environment and modules run **`./clean.sh`**
+1. Navigate to the application folder: **`cd sample-app-myuni-python`**
+2. Run the application: **`flask run --port 5001`**
+3. Run npm: **`npm start`**
+4. Open a browser to **http://localhost:3000**
 
-# Configuring a DocuSign payments gateway
+### Using installation scripts
 
-DocuSign offers built-in connections to multiple payment
-gateways. The payments example uses a demo account via the Stripe
-gateway service.
+All installation scripts are located in the **scripts** folder.
+1. Navigate to the scripts subfolder: **`cd scripts`**
+2. Run the application script: **`./run.sh`**
+3. Open a browser to **http://localhost:3000**
 
-## Creating the payments gateway account
+## Configuring a DocuSign payments gateway
 
-1. Login to demo.docusign.net and go to the Admin Panel.
-1. On the Integrations / Payments screen, click Stripe.
-1. For development, you can skip the Stripe account application
-   by using the `Skip this account form` on the top of the page.
-1. Next, the Admin Panel will show that an enabled Stripe
-   payment gateway account has been associated with your
-   DocuSign demo sandbox account.
-1. Configure the example launcher with the gateway account id shown in the Admin Panel.
-1. [Credit card numbers for testing](https://stripe.com/docs/testing)
+DocuSign offers built-in connections to multiple payment gateways. The payments example in this sample app uses a demo account for the Stripe gateway service.
+
+### Creating the payments gateway account
+
+1. Log in to your [developer sandbox account](https://appdemo.docusign.com/) and select Admin.
+2. On the Integrations/Payments screen, click Stripe.
+3. For development, you can skip the Stripe account application by using the `Skip this account form` on the top of the page.  
+  The Admin Panel will show that an enabled Stripe payment gateway account has been associated with your DocuSign developer sandbox account.
+5. Configure the example launcher with the gateway account ID shown in the Admin panel.
+6. Add the payment gateway account ID to the **.env** file.
 
 ## Additional documentation
-See the 
-[Managing Payment Gateways](https://support.docusign.com/en/guides/managing-payment-gateways)
-documentation. 
+* [Managing Payment Gateways](https://support.docusign.com/en/guides/managing-payment-gateways)
+* [Credit card numbers for testing](https://stripe.com/docs/testing)
 
-Then add the payment gateway account id to the **.env** file.
-
-## License and additional information
-
-### License
+## License information
 This repository uses the MIT License. See the [LICENSE](./LICENSE) file for more information.
-
-### Additional Resources
-* [DocuSign Developer Center](https://developers.docusign.com)
-* [DocuSign API on Twitter](https://twitter.com/docusignapi)
-* [DocuSign For Developers on LinkedIn](https://www.linkedin.com/showcase/docusign-for-developers/)
-* [DocuSign For Developers on YouTube](https://www.youtube.com/channel/UCJSJ2kMs_qeQotmw4-lX2NQ)
-

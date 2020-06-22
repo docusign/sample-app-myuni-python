@@ -2,24 +2,24 @@
   "Header1": "Welcome to MyUni",
   "Header2": "Self-Service Student Portal",
   "Footer1": "DocuSign: It's time to agree better",
-  "Footer2": "<p>DocuSign helps organizations connect and automate how they prepare, sign, act on and manage agreements.</p>",
+  "Footer2": "<p>DocuSign helps organizations connect and automate how they prepare, sign, act on, and manage agreements.</p>",
   "SandBoxButton": "Create Sandbox",
   "LearnMoreButton": "Learn More",
   "Card1": {
     "Title": "Change Your <br />Major or Minor",
-    "Description": "Request changes to your major and/or minor fields of study.",
-    "Features": "<h4 class='h4 card-info-list-title'>DocuSign features:</h4><ul class='custom-list'><li>Update recipient information</li><li>Create envelope from HTML Import</li><li>Fill tab data</li><li>Embedded signing (recipient view)</li></ul>",
+    "Description": "Request changes to your major and/or minor fields of study",
+    "Features": "<h4 class='h4 card-info-list-title'>DocuSign features:</h4><ul class='custom-list'><li>Update recipient information</li><li>Create envelope from HTML import</li><li>Fill tab data</li><li>Embedded signing (recipient view)</li></ul>",
     "Button": "Get Started"
   },
   "Card2": {
     "Title": "Request <br /> an Unofficial Transcript",
-    "Description": "Get an unofficial copy of your most recent transcript.",
-    "Features": "<h4 class='h4 card-info-list-title'>DocuSign features:</h4><ul class='custom-list'><li>Creating a clickwrap<li>Embedding a clickwrap on your site</li></ul>",
+    "Description": "Get an unofficial copy of your most recent transcript",
+    "Features": "<h4 class='h4 card-info-list-title'>DocuSign features:</h4><ul class='custom-list'><li>Create a clickwrap<li>Embed a clickwrap on your site</li></ul>",
     "Button": "Get Started"
   },
   "Card3": {
     "Title": "Sign Up for <br />Extracurricular Activities",
-    "Description": "One-stop shop for all your non-academic passions.",
+    "Description": "One-stop shop for all your non-academic interests",
     "Features": "<h4 class='h4 card-info-list-title'>DocuSign features:</h4><ul class='custom-list'><li>Update recipient information<li>Create envelope from HTML import<li>Fill tab data<li>Embedded signing (recipient view)<li>Request payment</li></ul>",
     "Button": "Get Started"
   }

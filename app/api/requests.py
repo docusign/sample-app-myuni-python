@@ -2,7 +2,7 @@ from docusign_esign import ApiException
 from flask import abort, Blueprint, jsonify, Response, request, session
 from flask_cors import cross_origin
 
-from app.api.utils import process_error
+from app.api.utils import process_error, check_token
 from app.clickwrap import Clickwrap
 from app.document import DsDocument
 from app.ds_config import DsConfig
@@ -14,6 +14,7 @@ requests = Blueprint('requests', __name__)
 
 @requests.route('/requests/minormajor', methods=['POST'])
 @cross_origin(supports_credentials=True)
+@check_token
 def minor_major():
     """Request for major/minor change"""
     try:
@@ -47,6 +48,7 @@ def minor_major():
 
 @requests.route('/requests/transcript', methods=['POST'])
 @cross_origin(supports_credentials=True)
+@check_token
 def download_transcript():
     """Request for viewing unofficial transcript"""
     try:
@@ -78,6 +80,7 @@ def download_transcript():
 
 @requests.route('/requests/activity', methods=['POST'])
 @cross_origin(supports_credentials=True)
+@check_token
 def payment_activity():
     """Request for extra-curricular activity"""
     try:
@@ -99,7 +102,7 @@ def payment_activity():
         envelope = DsDocument.create_with_payment(
             'payment-activity.html', student, activity_info, envelope_args
         )
-        # Submit envelope to the Docusign
+        # Submit envelope to Docusign
         envelope_id = Envelope.send(envelope)
         user_documents = session.get('ds_documents')
         if not user_documents:
@@ -137,6 +140,7 @@ def envelope_list():
 
 @requests.route('/requests/download', methods=['GET'])
 @cross_origin(supports_credentials=True)
+@check_token
 def envelope_download():
     """Request for document download from the envelope"""
     try:

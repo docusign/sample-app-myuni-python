@@ -9,7 +9,10 @@ export async function handleResponse(response) {
   throw new Error("API response error.");
 }
 
-export function handleError(error) {
+export function handleError(error, setShowJWTModal=undefined) {
+  if (error.response && error.response.status === 402) {
+    setShowJWTModal(true);
+  }
   console.error("API call failed. " + error);
   throw error;
 }

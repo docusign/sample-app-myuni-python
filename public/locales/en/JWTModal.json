@@ -1,0 +1,6 @@
+{
+    "LoginButton": "Switch to preconfigured account",
+    "CloseButton": "Cancel",
+    "ModalTitle": "Payment gateway required",
+    "Warning": "This scenario requires that your developer account be configured with a payment gateway (<a target='_blank' href='https://developers.docusign.com/esign-rest-api/code-examples/code-example-payments#step-1-configure-a-docusign-payments-gateway'>see how</a>).<br>How would you like to procced?"
+}

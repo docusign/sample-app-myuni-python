@@ -16,7 +16,9 @@ i18n
       "RequestExtracurricularActivity",
       "About",
       "History",
-      "SigningComplete"
+      "SigningComplete",
+      "Modal",
+      "JWTModal"
     ],
     transKeepBasicHtmlNodesFor: ["h3", "h4", "strong", "i", "p"],
     keySeparator: ".",

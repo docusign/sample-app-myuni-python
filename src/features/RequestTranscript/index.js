@@ -1,4 +1,4 @@
-import React, { useState, useReducer } from "react";
+import React, { useState, useReducer, useEffect, useContext } from "react";
 import { useTranslation } from "react-i18next";
 import { RequestForm } from "./components/RequestForm";
 import { ApiDescription } from "./components/ApiDescription";
@@ -6,6 +6,8 @@ import { reducer } from "./requestReducer";
 import * as studentsAPI from "../../api/studentsAPI";
 import * as Actions from "./actionTypes";
 import { download } from "../../api/download";
+import LoggedUserContext from "../../contexts/logged-user/logged-user.context";
+import { checkUnlogged } from "../../api/auth";
 
 const initialState = {
   errors: [],
@@ -21,7 +23,13 @@ export const RequestTranscriptPage = () => {
   const { t } = useTranslation("RequestTranscript");
   const [state, dispatch] = useReducer(reducer, initialState);
   const [request, setRequestData] = useState({ ...initialState.request });
+  const [requesting, setRequesting] = useState(false);
   const [errors, setErrors] = useState({});
+  const { logged, setLogged, setAuthType } = useContext(LoggedUserContext);
+
+  useEffect(() => {
+    checkUnlogged(logged, setLogged, setAuthType);
+  }, [])
 
   async function handleSave(event) {
     event.preventDefault();
@@ -34,6 +42,7 @@ export const RequestTranscriptPage = () => {
       "terms-transcript": t("Transcript.DisplayName"),
       "display-name": t("Transcript.TermsTranscript")
     };
+    setRequesting(true);
     try {
       const response = await studentsAPI.getCliwrapForRequestTranscript(body);
       dispatch({
@@ -48,8 +57,9 @@ export const RequestTranscriptPage = () => {
         false
       );
     } catch (error) {
-      throw error;
-    }
+      setRequesting(false);
+      setErrors({ ...errors, onSave: error.message });
+    } 
   }
 
   async function getTranscript(event, clickwrap) {
@@ -106,6 +116,7 @@ export const RequestTranscriptPage = () => {
       <div className="row">
         <RequestForm
           request={request}
+          requesting={requesting}
           onChange={handleChange}
           onSave={handleSave}
           errors={errors}

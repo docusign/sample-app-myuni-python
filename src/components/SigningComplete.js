@@ -118,7 +118,7 @@ export const SigningComplete = () => {
 
             <p>
               <a
-                href="https://developers.docusign.com/esign-rest-api/guides/features/embedding"
+                href="https://developers.docusign.com/esign-rest-api/guides/concepts/embedding"
                 target="_blank"
                 rel="noopener noreferrer"
               >

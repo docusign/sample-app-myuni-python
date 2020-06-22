@@ -1,0 +1,13 @@
+{
+    "HelpMeToDecide": "<a href='https://developers.docusign.com/esign-rest-api/guides/authentication' target='_blank' rel='noopener noreferrer'>Learn more about authentication options with DocuSign</a>",
+    "Warning": "If you don't have a DocuSign developer account (demo) You can <a href='https://go.docusign.com/o/sandbox/' target='_blank' rel='noopener noreferrer'>get one for free!</a>",
+    "ValidateMessage": "Please choose one of the two authentications options",
+    "ModalTitle": "Log in with DocuSign",
+    "LoginButton": "Log in",
+    "CloseButton": "Cancel",
+    "SelectLabel": "Choose the option",
+    "LoginOptions": [
+        "Log in with your DocuSign developer account",
+        "Continue with a preconfigured login"
+    ]
+}

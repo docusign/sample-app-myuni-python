@@ -1,4 +1,4 @@
-import React, { useState, useReducer } from "react";
+import React, { useState, useReducer, useContext, useEffect } from "react";
 import { RequestForm } from "./components/RequestForm";
 import { ApiDescription } from "./components/ApiDescription";
 import { reducer } from "./requestReducer";
@@ -6,6 +6,8 @@ import { Frame } from "../../components/Frame.js";
 import { SEND_REQEUST_SUCCESS } from "./actionTypes";
 import * as studentsAPI from "../../api/studentsAPI";
 import { useTranslation } from "react-i18next";
+import LoggedUserContext from "../../contexts/logged-user/logged-user.context";
+import { checkUnlogged } from "../../api/auth";
 
 const initialState = {
   errors: [],
@@ -25,6 +27,11 @@ export const RequestMajorMinorChangePage = () => {
   const [requesting, setRequesting] = useState(false);
   const [errors, setErrors] = useState({});
   const courses = t("Courses", { returnObjects: true });
+  const { logged, setLogged, setAuthType } = useContext(LoggedUserContext);
+
+  useEffect(() => {
+    checkUnlogged(logged, setLogged, setAuthType);
+  }, [])
 
   async function handleSave(event) {
     event.preventDefault();

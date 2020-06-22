@@ -1,6 +1,11 @@
-from flask import jsonify
+import time
+from functools import wraps
+
+from flask import jsonify, redirect, url_for
 
 from app.ds_config import DsConfig
+from app.ds_client import DsClient
+from app.const import TOKEN_REPLACEMENT_IN_SECONDS
 
 
 def process_error(err):
@@ -18,3 +23,16 @@ def process_error(err):
             'reason': err.reason,
             'response': err.body.decode('utf8')
         }), 400
+
+
+def check_token(func):
+    @wraps(func)
+    def wrapper(*args, **kwargs):
+        current_time = int(round(time.time()))
+        if (current_time + TOKEN_REPLACEMENT_IN_SECONDS) > DsClient.expiresTimestamp:
+            if DsClient.jwt_auth:
+                DsClient.get_instance().update_token()
+            elif DsClient.code_grant:
+                return redirect(url_for("auth.code_grant_auth"))
+        return func(*args, **kwargs)
+    return wrapper

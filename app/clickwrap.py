@@ -1,4 +1,4 @@
-import base64
+﻿import base64
 import json
 from datetime import datetime
 from os import path
@@ -8,7 +8,6 @@ from jinja2 import BaseLoader, Environment
 from app.const import TPL_PATH, CLICKWRAP_BASE_HOST, CLICKWRAP_BASE_URI, \
     CLICKWRAP_TIME_DELTA_IN_MINUTES
 from app.ds_client import DsClient
-
 
 class Clickwrap:
     @classmethod
@@ -28,7 +27,7 @@ class Clickwrap:
         terms = Environment(loader=BaseLoader).from_string(terms).render(
             terms_transcript=terms_transcript,
         )
-        base64_terms = base64.b64encode(bytes(terms, 'utf-8')).decode('ascii')
+        base64_terms = base64.b64encode(bytes(terms, "UTF-8")).decode('ascii')
 
         # Construct clickwrap JSON body
         body = {
@@ -38,26 +37,23 @@ class Clickwrap:
                 'downloadable': True,
                 'format': 'modal',
                 'hasAccept': True,
-                'mustRead': True,
                 'mustView': True,
                 'requireAccept': True,
                 'size': 'medium',
-                'documentDisplay': 'document'
+                'documentDisplay': 'document',
             },
             'documents': [
                 {
-                    'documentBase64': base64_terms,
+                    'documentHtml': terms,
                     'documentName': terms_name,
-                    'fileExtension': 'html',
-                    'order': 0
+                    'order': 1
                 }
             ],
             'name': terms_name,
             'requireReacceptance': True
         }
 
-        # Make a POST call to the clickwraps endpoint to create a clickwrap
-        # for an account
+        # Make a POST call to the clickwraps endpoint to create a clickwrap for an account
         ds_client = DsClient.get_instance(CLICKWRAP_BASE_HOST)
         uri = f"{CLICKWRAP_BASE_URI}/{ds_client.account_id}/clickwraps"
         response = ds_client.api_client.call_api(
@@ -65,8 +61,7 @@ class Clickwrap:
         )
         clickwrap_id = response[0].get('clickwrapId')
 
-        # Make a PUT call to the clickwraps endpoint to activate created
-        # clickwrap
+        # Make a PUT call to the clickwraps endpoint to activate the created clickwrap
         uri = f"{CLICKWRAP_BASE_URI}/{ds_client.account_id}/clickwraps/{clickwrap_id}/versions/1"
         response_active = ds_client.api_client.call_api(
             uri, 'PUT', body={'status': 'active'}, response_type='object'
@@ -77,7 +72,7 @@ class Clickwrap:
     def get_user_agreements(cls, args):
         """Gets all the users that have agreed to a clickwrap
         Parameters:
-            args (dict): parameters for the clickwrap.
+            args (dict): parameters for the clickwrap
         Returns:
             list of users that have agreed to a clickwrap
         """

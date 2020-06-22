@@ -23,7 +23,7 @@ class DsDocument:
         with open(path.join(TPL_PATH, tpl), 'r') as file:
             content_bytes = file.read()
 
-        # Get base64 logo representation to paste it into the html
+        # Get base64 logo representation to paste it into the HTML
         with open(path.join(IMG_PATH, 'logo.png'), 'rb') as file:
             img_base64_src = base64.b64encode(file.read()).decode('utf-8')
 
@@ -41,7 +41,7 @@ class DsDocument:
         ).decode('ascii')
 
         # Create the document model
-        document = Document(  # create the DocuSign document object
+        document = Document(  # Create the DocuSign document object
             document_base64=base64_file_content,
             name='Change minor/major field',
             file_extension='html',
@@ -58,7 +58,7 @@ class DsDocument:
             client_user_id=envelope_args['signer_client_id']
         )
 
-        # Create a sign_here tab (field on the document)
+        # Create a SignHere tab (field on the document)
         sign_here = SignHere(
             anchor_string='/signature_1/',
             anchor_units='pixels',
@@ -66,7 +66,7 @@ class DsDocument:
             anchor_x_offset='20'
         )
 
-        # Create a initials tab
+        # Create a InitialHere tab
         initial_here = InitialHere(
             anchor_string='/initials_1/',
             anchor_units='pixels',
@@ -74,7 +74,7 @@ class DsDocument:
             anchor_x_offset='20'
         )
 
-        # Create email field
+        # Create an Email field
         email = Email(
             document_id='1',
             page_number='1',
@@ -91,13 +91,13 @@ class DsDocument:
             initial_here_tabs=[initial_here]
         )
 
-        # Next, create the top level envelope definition and populate it.
+        # Create the top-level envelope definition and populate it
         envelope_definition = EnvelopeDefinition(
             email_subject='Change minor/major field',
             documents=[document],
-            # The Recipients object wants arrays for each recipient type
+            # The Recipients object takes arrays for each recipient type
             recipients=Recipients(signers=[signer]),
-            status='sent'  # requests that the envelope be created and sent.
+            status='sent'  # Requests that the envelope be created and sent
         )
 
         return envelope_definition
@@ -122,7 +122,7 @@ class DsDocument:
         with open(path.join(TPL_PATH, tpl), 'r') as file:
             content_bytes = file.read()
 
-        # Get base64 logo representation to paste it into the html
+        # Get base64 logo representation to paste it into the HTML
         with open(path.join(IMG_PATH, 'logo.png'), 'rb') as file:
             img_base64_src = base64.b64encode(file.read()).decode('utf-8')
         content_bytes = Environment(loader=BaseLoader).from_string(
@@ -151,7 +151,7 @@ class DsDocument:
                         )
         envelope_definition.documents = [doc1]
 
-        # Create a signer recipient to sign the document
+        # Create a Signer recipient to sign the document
         signer1 = Signer(
             email=student['email'],
             name=f"{student['first_name']} {student['last_name']}",
@@ -164,7 +164,7 @@ class DsDocument:
             anchor_y_offset='10', anchor_units='pixels',
             anchor_x_offset='20')
 
-        # Create number tab for the price
+        # Create a Number tab for the price
         numberl1e = Number(
             font='helvetica',
             font_size='size11',
@@ -179,7 +179,7 @@ class DsDocument:
             disable_auto_size='false',
         )
 
-        # Create formula tab for the total
+        # Create a FormulaTab for the total
         formula_total = FormulaTab(
             font='helvetica',
             bold='true',
@@ -196,7 +196,7 @@ class DsDocument:
             disable_auto_size='false',
         )
 
-        # Create payment line items
+        # Create PaymentLineItems
         payment_line_iteml1 = PaymentLineItem(
             name=l1_name, description=l1_description, amount_reference='l1e'
         )
@@ -208,7 +208,7 @@ class DsDocument:
             line_items=[payment_line_iteml1]
         )
 
-        # Create hidden formula tab for the payment itself
+        # Create hidden FormulaTab for the payment itself
         formula_payment = FormulaTab(
             tab_label='payment',
             formula=f'{l1_price} * {currency_multiplier}',
@@ -223,7 +223,7 @@ class DsDocument:
             y_position='0'
         )
 
-        # Create tabs for signer
+        # Create Tabs for signer
         signer1_tabs = Tabs(
             sign_here_tabs=[sign_here1],
             formula_tabs=[formula_payment, formula_total],
@@ -235,7 +235,7 @@ class DsDocument:
         recipients = Recipients(signers=[signer1])
         envelope_definition.recipients = recipients
 
-        # Request that the envelope be sent by setting |status| to 'sent'.
+        # Request that the envelope be sent by setting status to 'sent'.
         envelope_definition.status = 'sent'
 
         return envelope_definition

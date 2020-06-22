@@ -18,7 +18,7 @@
   },
   "CancelEvent": {
     "Name": "cancel",
-    "Decription": "The recipient has postponed signing. They clicked <b>Finish Later</b> instead of <b>Decline to Sign</b>."
+    "Decription": "The recipient has postponed signing. They clicked <strong>Finish Later</strong> instead of <strong>Decline to Sign</strong>."
   },
   "ExceptionEvent": {
     "Name": "exception",

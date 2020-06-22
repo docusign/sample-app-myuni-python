@@ -1,10 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
+import { Button } from "react-bootstrap";
 import svg from "../assets/img/logo.svg";
 import { useTranslation } from "react-i18next";
+import LoggedUserContext from "../contexts/logged-user/logged-user.context";
+import ModalContext from "../contexts/modal/modal.context";
 
 export const Header = () => {
   const { t } = useTranslation("Common");
+  const { logged } = useContext(LoggedUserContext);
+  const { setModalShow } = useContext(ModalContext);
+
   return (
     <header className="header" role="banner">
       <div className="container-fluid">
@@ -60,6 +66,21 @@ export const Header = () => {
                   {t("AboutLink")}
                 </NavLink>
               </li>
+              {!logged &&
+              <li className="nav-item">
+                <Button className="btn btn-danger nav-btn" size="sm"
+                onClick={() => setModalShow(true)}>
+                  {t("LogInButton")}
+                </Button>
+              </li>
+              }
+              {logged &&
+              <li className="nav-item">
+                <NavLink className="nav-link" to="/logout">
+                  {t("LogOutLink")}
+                </NavLink>
+              </li>
+              }
             </ul>
           </div>
         </nav>
