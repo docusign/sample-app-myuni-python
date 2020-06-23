@@ -11,7 +11,7 @@
     "html-react-parser": "^0.10.0",
     "i18next": "^19.0.3",
     "i18next-xhr-backend": "^3.2.2",
-    "jquery": "3.4.1",
+    "jquery": "3.5.1",
     "moment": "^2.24.0",
     "node-sass": "^4.13.0",
     "popper.js": "^1.16.1",
