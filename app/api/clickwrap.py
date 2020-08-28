@@ -17,7 +17,6 @@ def transcript_clickwrap():
             req_json = request.get_json(force=True)
             clickwrap_args = {
                 'terms_name': req_json['terms-name'],
-                'terms_transcript': req_json['terms-transcript'],
                 'display_name': req_json['display-name'],
             }
         except TypeError:
