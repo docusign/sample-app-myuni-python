@@ -1,13 +1,11 @@
 ﻿import base64
-import json
 from datetime import datetime
 from os import path
-
-from jinja2 import BaseLoader, Environment
 
 from app.const import TPL_PATH, CLICKWRAP_BASE_HOST, CLICKWRAP_BASE_URI, \
     CLICKWRAP_TIME_DELTA_IN_MINUTES
 from app.ds_client import DsClient
+
 
 class Clickwrap:
     @classmethod
@@ -19,15 +17,14 @@ class Clickwrap:
             JSON structure of the created clickwrap.
         """
         terms_name = args.get('terms_name')
-        terms_transcript = args.get('terms_transcript')
         display_name = args.get('display_name')
+        file_name = 'transcript-terms.docx'
+        file_extension = file_name[file_name.rfind('.')+1:]
 
-        with open(path.join(TPL_PATH, 'transcript-terms.html'), 'r') as file:
-            terms = file.read()
-        terms = Environment(loader=BaseLoader).from_string(terms).render(
-            terms_transcript=terms_transcript,
-        )
-        base64_terms = base64.b64encode(bytes(terms, "UTF-8")).decode('ascii')
+        with open(path.join(TPL_PATH, file_name), 'rb') as binary_file:
+            binary_file_data = binary_file.read()
+            base64_encoded_data = base64.b64encode(binary_file_data)
+            base64_terms = base64_encoded_data.decode('utf-8')
 
         # Construct clickwrap JSON body
         body = {
@@ -44,9 +41,10 @@ class Clickwrap:
             },
             'documents': [
                 {
-                    'documentHtml': terms,
+                    'documentBase64': base64_terms,
                     'documentName': terms_name,
-                    'order': 1
+                    'fileExtension': file_extension,
+                    'order': 0
                 }
             ],
             'name': terms_name,
