@@ -15,13 +15,13 @@ MyUni demonstrates the following:
    [More information about ClickAPI](https://developers.docusign.com/click-api) 
 4. **Sign Up for Extracurricular Activities:** ([Source](./app/api/requests.py))  
    This example uses the DocuSign [eSignature REST API](https://developers.docusign.com/esign-rest-api), demonstrating how to use envelopes combined with payment gateways. The example sends an envelope based on HTML template and adds payment feature to the document, so after signing, the user will be able to pay for their chosen activity.  
-   To use this example, create a test payments gateway for your developer sandbox account.
+   To use this example, create a test payments gateway for your developer account.
 
 ## Installation
 
 ### Prerequisites
 
-* A DocuSign developer sandbox account. Create a [free account](https://go.docusign.com/sandbox/productshot/?elqCampaignId=16535).
+* A DocuSign developer account. Create a [free account](https://go.docusign.com/sandbox/productshot/?elqCampaignId=16535).
 * A DocuSign integration key (a client ID) that is configured to use JSON Web Token (JWT) Grant.
    You will need the **integration key** itself and its **RSA key pair**. To use this application, you must add your application's **Redirect URI** to your integration key. This [**video**](https://www.youtube.com/watch?v=GgDqa7-L0yo) demonstrates how to create an integration key (client ID) for a user application like this example. 
 * [Python 3.7+](https://www.python.org/downloads/)
@@ -90,10 +90,10 @@ DocuSign offers built-in connections to multiple payment gateways. The payments 
 
 ### Creating the payments gateway account
 
-1. Log in to your [developer sandbox account](https://appdemo.docusign.com/) and select Admin.
+1. Log in to your [developer account](https://appdemo.docusign.com/) and select Admin.
 2. On the Integrations/Payments screen, click Stripe.
 3. For development, you can skip the Stripe account application by using the `Skip this account form` on the top of the page.  
-  The Admin Panel will show that an enabled Stripe payment gateway account has been associated with your DocuSign developer sandbox account.
+  The Admin Panel will show that an enabled Stripe payment gateway account has been associated with your DocuSign developer account.
 5. Configure the example launcher with the gateway account ID shown in the Admin panel.
 6. Add the payment gateway account ID to the **.env** file.
 
