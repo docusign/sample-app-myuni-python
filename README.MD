@@ -3,7 +3,7 @@
 ### Github repo: MyUniSampleApp
 
 ## Introduction
-MyUni is a DocuSign sample application written in Python 3.7 (server) and React (client). You can find a live instance running at [https://myunisample.esigndemos.com/](https://myunisample.esigndemos.com/).
+MyUni is a DocuSign sample application written in Python 3.7 (server) and React (client). You can find a live instance running at [https://myuni.sampleapps.docusign.com/](https://myuni.sampleapps.docusign.com/).
  
 MyUni demonstrates the following:
 
