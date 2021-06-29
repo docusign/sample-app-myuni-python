@@ -26,7 +26,7 @@ export const ListItem = ({ item, onClick }) => {
             className="dropdown-menu dropdown-menu-right"
             aria-labelledby="options3"
           >
-            <a
+            <a href="#/"
               className="dropdown-item"
               onClick={() =>
                 onClick({
@@ -39,7 +39,7 @@ export const ListItem = ({ item, onClick }) => {
             >
               {t("HTMLOptionButton")}
             </a>
-            <a
+            <a href="#/"
               className="dropdown-item"
               onClick={() =>
                 onClick({
@@ -52,7 +52,7 @@ export const ListItem = ({ item, onClick }) => {
             >
               {t("SummaryOptionButton")}
             </a>
-            <a
+            <a href="#/"
               className="dropdown-item"
               onClick={() =>
                 onClick({

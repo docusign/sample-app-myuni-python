@@ -18,7 +18,6 @@ const initialState = {
 export const Login = (props) => {
     const [request, setRequestData] = useState({ ...initialState.request });
     const [errors, setErrors] = useState({});
-    const [showWarning, setShowWarning] = useState(false);
     const [submitted, setSubmitted] = useState(false);
     const { redirectUrl, setLogged, setAuthType } = useContext(LoggedUserContext);
     const { t } = useTranslation("Modal");
@@ -28,15 +27,11 @@ export const Login = (props) => {
         const { name, value } = event.target;
         const { [name]: removed, ...updatedErrors } = errors;
         setSubmitted(false);
-        setShowWarning(false);
         setErrors(updatedErrors);
         setRequestData(request => ({
           ...request,
           [name]: loginOptions[value]
         }));
-        if (value === "0") {
-            setShowWarning(true);
-      }
     }
     
     async function handleClick(event) {
@@ -78,7 +73,6 @@ export const Login = (props) => {
 
     function handleClose() {
         props.onHide();
-        setShowWarning(false);
         setSubmitted(false);
         setRequestData(request => ({
             ...request,

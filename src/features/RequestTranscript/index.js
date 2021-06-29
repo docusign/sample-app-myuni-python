@@ -29,7 +29,7 @@ export const RequestTranscriptPage = () => {
 
   useEffect(() => {
     checkUnlogged(logged, setLogged, setAuthType);
-  }, [])
+  })
 
   async function handleSave(event) {
     event.preventDefault();

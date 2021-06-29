@@ -29,7 +29,7 @@ const App = () => {
   async function handleLogOut() {
     await logOut();
     history.push("/");
-    await getStatus(setLogged, setAuthType);
+    getStatus(setLogged, setAuthType);
   }
 
   const routes = (
