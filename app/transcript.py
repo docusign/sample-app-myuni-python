@@ -4,7 +4,7 @@ from os import path
 
 from jinja2 import BaseLoader, Environment
 
-from app.const import TPL_PATH, IMG_PATH
+from app.ds_config import TPL_PATH, IMG_PATH
 
 def render_transcript(student_name):
     """Get base64 transcript
