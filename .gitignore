@@ -2,6 +2,8 @@
 .idea
 .env
 
+__pycache__/
+
 # pyenv
 .python-version
 /venv
