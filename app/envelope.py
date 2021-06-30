@@ -30,8 +30,7 @@ class Envelope:
         return results.envelope_id
 
     @staticmethod
-    def get_view(envelope_id, envelope_args, student, session,
-                 authentication_method='None'):
+    def get_view(envelope_id, envelope_args, student, session, authentication_method='None'):
         """Get the recipient view
         Parameters:
             envelope_id (str): envelope ID
