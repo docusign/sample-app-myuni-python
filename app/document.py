@@ -1,12 +1,23 @@
 import base64
 from os import path
 
-from docusign_esign import Recipients, EnvelopeDefinition, Tabs, Email, \
-    InitialHere, SignHere, Signer, FormulaTab, Number, PaymentDetails, \
-    PaymentLineItem, Document
+from docusign_esign import (
+    Recipients,
+    EnvelopeDefinition,
+    Tabs,
+    Email,
+    InitialHere,
+    SignHere,
+    Signer,
+    FormulaTab,
+    Number,
+    PaymentDetails,
+    PaymentLineItem,
+    Document
+)
 from jinja2 import Environment, BaseLoader
 
-from app.const import TPL_PATH, IMG_PATH
+from app.ds_config import TPL_PATH, IMG_PATH
 
 
 class DsDocument:
@@ -103,7 +114,7 @@ class DsDocument:
         return envelope_definition
 
     @classmethod
-    def create_with_payment(cls, tpl, student, activity_info, envelope_args):
+    def create_with_payment(cls, tpl, student, activity_info, envelope_args): # pylint: disable-msg=too-many-locals
         """Create envelope with payment feature included
         Parameters:
             tpl (str): template path for the document

@@ -1,4 +1,4 @@
-import { handleResponse, handleError } from "./apiHelper";
+import { handleError } from "./apiHelper";
 import history from "./history";
 import axios from './interceptors';
 
@@ -21,6 +21,9 @@ export async function callback() {
             process.env.REACT_APP_API_BASE_URL + "/callback",
             {
                 code: code
+            },
+            {
+                withCredentials: true
             }
         );
         return response.data.message
@@ -35,6 +38,9 @@ export async function logOut() {
         await axios.post(
             process.env.REACT_APP_API_BASE_URL + "/logout",
             {
+                
+            },
+            {
                 withCredentials: true
             }
         );
@@ -47,7 +53,10 @@ export async function logOut() {
 export async function getStatus(setStatus, setAuthType) {
     try {
         let response = await axios.get(
-            process.env.REACT_APP_API_BASE_URL + "/get_status"
+            process.env.REACT_APP_API_BASE_URL + "/get_status",
+            {
+                withCredentials: true
+            }
         );
         setStatus(response.data.logged);
         setAuthType(response.data.auth_type);
@@ -58,7 +67,7 @@ export async function getStatus(setStatus, setAuthType) {
 
 export async function jwtAuth() {
     try {
-        await axios.post(
+        await axios.get(
             process.env.REACT_APP_API_BASE_URL + "/jwt_auth",
             {
                 withCredentials: true
@@ -82,7 +91,7 @@ export async function completeCallback(setShowAlert, setStatus, setAuthType, set
         const message = await callback();
         const redirectUrl = localStorage.getItem("redirectUrl")
         
-        await getStatus(setStatus, setAuthType);
+        getStatus(setStatus, setAuthType);
         if (message === "Logged in with JWT") {
             setShowAlert(true);
         }
@@ -98,7 +107,10 @@ export async function completeCallback(setShowAlert, setStatus, setAuthType, set
 export async function checkPayment(setShowJWTModal) {
     try {
         const response = await axios.get(
-            process.env.REACT_APP_API_BASE_URL + "/check_payment"
+            process.env.REACT_APP_API_BASE_URL + "/check_payment",
+            {
+                withCredentials: true
+            }
         );
         return response;
     } catch (error){

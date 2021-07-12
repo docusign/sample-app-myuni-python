@@ -7,8 +7,8 @@ from app.ds_client import DsClient
 
 
 class Envelope:
-    @classmethod
-    def send(cls, envelope):
+    @staticmethod
+    def send(envelope, session):
         """Send an envelope
         Parameters:
             envelope (object): EnvelopeDefinition object
@@ -17,17 +17,20 @@ class Envelope:
         """
         # Call Envelope API create method
         # Exceptions will be caught by the calling function
-        ds_client = DsClient.get_instance()
-        envelope_api = EnvelopesApi(ds_client.api_client)
+        access_token = session.get('access_token')
+        account_id = session.get('account_id')
+
+        ds_client = DsClient.get_configured_instance(access_token)
+
+        envelope_api = EnvelopesApi(ds_client)
         results = envelope_api.create_envelope(
-            ds_client.account_id,
+            account_id,
             envelope_definition=envelope
         )
         return results.envelope_id
 
-    @classmethod
-    def get_view(cls, envelope_id, envelope_args, student,
-                 authentication_method='None'):
+    @staticmethod
+    def get_view(envelope_id, envelope_args, student, session, authentication_method='None'):
         """Get the recipient view
         Parameters:
             envelope_id (str): envelope ID
@@ -37,6 +40,9 @@ class Envelope:
         Returns:
             URL to the recipient view UI
         """
+        access_token = session.get('access_token')
+        account_id = session.get('account_id')
+
         # Create the RecipientViewRequest object
         recipient_view_request = RecipientViewRequest(
             authentication_method=authentication_method,
@@ -48,17 +54,18 @@ class Envelope:
         )
         # Obtain the recipient view URL for the signing ceremony
         # Exceptions will be caught by the calling function
-        ds_client = DsClient.get_instance()
-        envelope_api = EnvelopesApi(ds_client.api_client)
+        ds_client = DsClient.get_configured_instance(access_token)
+
+        envelope_api = EnvelopesApi(ds_client)
         results = envelope_api.create_recipient_view(
-            ds_client.account_id,
+            account_id,
             envelope_id,
             recipient_view_request=recipient_view_request
         )
         return results
 
-    @classmethod
-    def list(cls, envelope_args, user_documents):
+    @staticmethod
+    def list(envelope_args, user_documents, session):
         """Get status changes for one or more envelopes
         Parameters:
             envelope_args (dict): document parameters
@@ -66,10 +73,13 @@ class Envelope:
         Returns:
             EnvelopesInformation
         """
-        ds_client = DsClient.get_instance()
-        envelope_api = EnvelopesApi(ds_client.api_client)
+        access_token = session.get('access_token')
+        account_id = session.get('account_id')
+
+        ds_client = DsClient.get_configured_instance(access_token)
+        envelope_api = EnvelopesApi(ds_client)
         envelopes_info = envelope_api.list_status_changes(
-            ds_client.account_id,
+            account_id,
             from_date=envelope_args['from_date'],
             include='recipients'
         )
@@ -79,13 +89,16 @@ class Envelope:
                    if env.envelope_id in user_documents]
         return results
 
-    @classmethod
-    def download(cls, args):
+    @staticmethod
+    def download(args, session):
         """Download the specified document from the envelope"""
-        ds_client = DsClient.get_instance()
-        envelope_api = EnvelopesApi(ds_client.api_client)
+        access_token = session.get('access_token')
+        account_id = session.get('account_id')
+
+        ds_client = DsClient.get_configured_instance(access_token)
+        envelope_api = EnvelopesApi(ds_client)
         file_path = envelope_api.get_document(
-            ds_client.account_id, args['document_id'], args['envelope_id']
+            account_id, args['document_id'], args['envelope_id']
         )
         (dirname, filename) = os.path.split(file_path)
         return send_from_directory(

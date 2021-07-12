@@ -40,7 +40,7 @@ MyUni demonstrates the following:
 * **DS_PRIVATE_KEY** - Private key string, source or path; for instance: /app/id_rsa
 * **REACT_APP_DS_RETURN_URL** - URL where the back end of the application is located (If you run it locally, use `http://localhost:3000`)
 * **REACT_APP_API_BASE_URL** - URL where the front end of the application is located; will be used by Docusign to redirect back after signing ceremony (If you run it locally, use `http://localhost:5001/api`)
-* **REACT_APP_DS_AUTH_SERVER** - The DocuSign authentication server (for testing purposes, use `https://account-d.docusign.com`)
+* **DS_AUTH_SERVER** - The DocuSign authentication server (for testing purposes, use `https://account-d.docusign.com`)
 * **REACT_APP_DS_DEMO_SERVER** - Link to the DocuSign demo server (for testing purposes, use `https://demo.docusign.net`)
 * **REACT_APP_DS_CLICKWRAP_URL** - Link to the hosted clickwrap client (for testing purposes, use `//demo.docusign.net/clickapi/sdk/latest/docusign-click.js`)
 
