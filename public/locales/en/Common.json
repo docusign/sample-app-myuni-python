@@ -3,7 +3,7 @@
   "TransactionHistoryLink": "Status",
   "GitHubLink": "GitHub Source",
   "AboutLink": "About",
-  "Copyright": "© 2020 DocuSign Inc.",
+  "Copyright": "© 2022 DocuSign Inc.",
   "LogOutLink": "Log out",
   "LogInButton": "Log in",
   "AlertMessage": "Sorry, there was some issue with the Code Grant Authorization, so you have been logged with JWT authorization"
