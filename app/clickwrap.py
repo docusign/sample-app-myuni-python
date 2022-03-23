@@ -39,7 +39,6 @@ class Clickwrap:
                 'downloadable': True,
                 'format': 'modal',
                 'hasAccept': True,
-                'mustView': True,
                 'requireAccept': True,
                 'size': 'medium',
                 'documentDisplay': 'document',
