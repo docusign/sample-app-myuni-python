@@ -54,7 +54,7 @@ MyUni demonstrates the following:
 4. Install React dependencies using [npm](https://www.npmjs.com/) package manager  **npm install**
 5. Update the **.env** file with the integration key and other settings.  
      > **Note:** Protect your integration key and client secret. You should make sure that your **.env** file will not be stored in your source code repository.
-6. Navigate to [the admin demo Apps and Keys page](https://admindemo.docusign.com/apps-and-keys), add the Redirect URI http://localhost:3000/callback and then hit save
+6. Navigate to [the admin demo Apps and Keys page](https://admindemo.docusign.com/authenticate?goTo=appsAndKeys), add the Redirect URI http://localhost:3000/callback and then hit save
 
 **Using installation scripts**
 
@@ -63,7 +63,8 @@ MyUni demonstrates the following:
 3. Run the installation script: **`./install.sh`**
 4. Update the **.env** file with the integration key and other settings.  
     > **Note:** Protect your integration key and client secret. You should make sure that your **.env** file will not be stored in your source code repository.
-5. Navigate to [the admin demo Apps and Keys page](https://admindemo.docusign.com/apps-and-keys), add the Redirect URI http://localhost:3000/callback and then hit save
+5. Navigate to [the admin demo Apps and Keys page](https://admindemo.docusign.com/authenticate?goTo=appsAndKeys), add the Redirect URI http://localhost:3000/callback and then hit save
+
 ### Additional installation scripts
 All installation scripts are located in the **scripts** folder.
 1. To stop the application, run **`./stop.sh`**
