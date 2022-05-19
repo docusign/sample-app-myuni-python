@@ -50,7 +50,8 @@ export const SigningComplete = () => {
                   <button
                     className="btn btn-danger"
                     style={{
-                      position: "absolute"
+                      position: "absolute",
+                      whiteSpace: "nowrap"
                     }}
                   >
                     {t("SandboxButton")}
