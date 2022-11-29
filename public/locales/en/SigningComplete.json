@@ -5,9 +5,9 @@
   "StatusLink": "View My Submissions",
   "SandboxText": "<h4>Get Started with the DocuSign APIs Today</h4>",
   "SandboxButton": "GET YOUR DEVELOPER ACCOUNT",
-  "Description": "<p>  <br></br>With the DocuSign developer account, you can test our APIs for free! Developer accounts do not expire and have Enterprise-level features enabled.</p>",
+  "Description": "<p>  <br></br>With the DocuSign developer account, you can test our APIs for free! </br> Developer accounts do not expire and have Enterprise-level features enabled.</p>",
   "SigningReturnEvents": "Possible Signing Return Events",
-  "LearnAbout": "Learn more about Embedded Signing",
+  "LearnAbout": "Learn more about Embedded signing",
   "SigningCompleteEvent": {
     "Name": "signing_complete",
     "Decription": "The recipient has signed the document. It will be securely stored on the DocuSign, Inc. servers."

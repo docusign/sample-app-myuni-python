@@ -14,7 +14,7 @@
   "Card2": {
     "Title": "Request <br /> an Unofficial Transcript",
     "Description": "Get an unofficial copy of your most recent transcript",
-    "Features": "<h4 class='h4 card-info-list-title'>DocuSign features:</h4><ul class='custom-list'><li>Create a clickwrap<li>Embed a clickwrap on your site</li></ul>",
+    "Features": "<h4 class='h4 card-info-list-title'>DocuSign features:</h4><ul class='custom-list'><li>Create an elastic template<li>Embed an elastic template on your site</li></ul>",
     "Button": "Get Started"
   },
   "Card3": {

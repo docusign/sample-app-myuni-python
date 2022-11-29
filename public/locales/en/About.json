@@ -11,11 +11,10 @@
   "DeveloperCenter": "Developer Center",
   "DeveloperCenterLink": "https://developers.docusign.com",
   "APICodeExamples": "DocuSign eSignature API Code Examples",
-  "APICodeExamplesLink": "https://developers.docusign.com/esign-rest-api/code-examples",
-  "ESignatureDocumentation": "DocuSign eSignature API Documentation",
-  "ESignatureDocumentationLink": " https://developers.docusign.com/esign-rest-api/reference",
+  "APICodeExamplesLink": "https://developers.docusign.com/docs/esign-rest-api/how-to/",
+  "ESignatureDocumentation": "DocuSign eSignature API Reference",
+  "ESignatureDocumentationLink": "https://developers.docusign.com/docs/esign-rest-api/reference/",
   "DeveloperCommunity": "Developer Community",
   "DeveloperCommunityLink": "http://stackoverflow.com/questions/tagged/docusignapi",
-  "AboutDocuSign": "<h3>About DocuSign</h3><ul><li>More than <strong>400 million users</strong> in <strong>188 countries</strong></li><li>More than 500,000 companies</li><li>More than 300,000 new unique users join The DocuSign Global Trust Network every day</li><li>More than 64% of documents are completed within one hour</li>    <li>DocuSign is available in 43 languages</li></ul>",
-  "DocuSignLink": "DocuSign.com"
+  "AboutDocuSign": "<h3>About DocuSign</h3><ul><li>More than 1,000,000 paying customers and over a billion users in over 180 countries</li><li>More than 300,000 new unique users join the DocuSign Global Trust Network every day</li><li>83% of DocuSign documents are returned within 1 hour, with 50% completed within 15 minutes</li><li>$36 per document savings when you leave paper behind</li>   <li>DocuSign is available in 44 languages</li></ul>"
 }

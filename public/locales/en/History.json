@@ -4,9 +4,13 @@
   "Header2": "Applicant",
   "Header3": "Last Updated",
   "OptionsButton": "Options:",
-  "SubmissionsStatus": "Submissions Status",
+  "SubmissionsStatus": "Submission Status",
   "HTMLOptionButton": "Download signed document",
   "SummaryOptionButton": "Download summary",
   "CombinedOptionButton": "Download combined PDF",
-  "EmptyListMessage": "Once you begin creating MyUni transactions, you'll be able to check their status here and download the documents they generate..."
+  "EmptyListMessage": "Once you begin creating MyUni transactions, you'll be able to check their status here and download the documents they generate...",
+  "ApiDecription": {
+    "SeeMore": "- See behind the scenes",
+    "CodeFlow": "<h3>This sample features:</h3><ul><li>Some features</li><li>Some features</li></ul><h3>Code flow:</h3><h5>Step 1</h5><p>Some describtion of the steps</p><p>To create the recipient view of the envelope, we send an API request to:</p><pre>POST /v2.1/accounts/{accountId}/envelopes/{envelopeId}/views/recipient</pre><h5>Step 2</h5><p>Some describtion of the steps</p><p>To create the recipient view of the envelope, we send an API request to:</p><pre>POST /v2.1/accounts/{accountId}/envelopes/{envelopeId}/views/recipient</pre>"
+  }
 }
