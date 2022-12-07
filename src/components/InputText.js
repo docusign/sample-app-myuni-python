@@ -9,6 +9,10 @@ export const InputText = ({
   value,
   error
 }) => {
+  var type = "text";
+  if(name === "email"){
+    type = "email";
+  }
   let wrapperClass = "form-group";
   if (error && error.length > 0) {
     wrapperClass += " has-error";
@@ -19,7 +23,7 @@ export const InputText = ({
       <label htmlFor={name}>{label}</label>
       <div className="field form-group">
         <input
-          type="text"
+          type={type}
           name={name}
           className="form-control"
           placeholder={placeholder}

@@ -95,7 +95,7 @@ export const RequestExtracurricularActivityPage = () => {
     if (!lastName) {
       errors.lastName = t("Error.LastName");
     }
-    if (!email) {
+    if (!email || !(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(email))) {
       errors.email = t("Error.Email");
     }
     if (!activity) {

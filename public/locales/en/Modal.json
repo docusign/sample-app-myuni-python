@@ -1,5 +1,5 @@
 {
-    "HelpMeToDecide": "<a href='https://developers.docusign.com/esign-rest-api/guides/authentication' target='_blank' rel='noopener noreferrer'>Learn more about authentication options with DocuSign</a>",
+    "HelpMeToDecide": "<a href='https://developers.docusign.com/platform/auth/' target='_blank' rel='noopener noreferrer'>Learn more about authentication options with DocuSign</a>",
     "Warning": "If you don't have a DocuSign developer account, you can <a href='https://go.docusign.com/o/sandbox/' target='_blank' rel='noopener noreferrer'>get one for free!</a>",
     "ValidateMessage": "Please choose one of the two authentications options",
     "ModalTitle": "Log in with DocuSign",

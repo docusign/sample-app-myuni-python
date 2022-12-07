@@ -75,9 +75,21 @@ export const RequestTranscriptPage = () => {
       try {
         const response = await studentsAPI.requestTranscript(body);
         download(response, "transcript", "html", "text/html");
+        window.addEventListener(
+          "message",
+          event => goToSigningComplete(event),
+          false
+        );
       } catch (error) {
         throw error;
       }
+    }
+  }
+
+  function goToSigningComplete(event) {
+    if (event.data.type === "CLOSE_HAS_AGREED") {
+      window.top.location.href =
+        process.env.REACT_APP_DS_RETURN_URL + "/signing_complete";
     }
   }
 
@@ -104,7 +116,7 @@ export const RequestTranscriptPage = () => {
     if (!lastName) {
       errors.lastName = t("Error.LastName");
     }
-    if (!email) {
+    if (!email || !(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(email))) {
       errors.email = t("Error.Email");
     }
     setErrors(errors);

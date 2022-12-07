@@ -12,13 +12,12 @@ export const About = () => {
       <blockquote>{parse(t("Description"))}</blockquote>
       <p>
         <strong>
-          {t("SourceButton")}
           <a
             target="_blank"
-            href="https://github.com/docusign/sample-app-myuni-python"
+            href={t("GitHubLink")}
             rel="noopener noreferrer"
           >
-            {t("GitHubLink")}
+            {t("SourceButton")}
           </a>
         </strong>
       </p>
@@ -29,40 +28,40 @@ export const About = () => {
         </div>
         <div className="col-md-6">
           <h3>{t("ToolsandLinks")}</h3>
-          <p><strong>{t("DeveloperCenter")}</strong><br></br>
+          <p>
             <a
               target="_blank"
-              href="https://developers.docusign.com"
+              href={t("DeveloperCenterLink")}
               rel="noopener noreferrer"
             >
-              {t("DeveloperCenterLink")}
+              <strong>{t("DeveloperCenter")}</strong>
             </a>
           </p>
-          <p><strong>{t("APICodeExamples")}</strong><br></br>
+          <p>
             <a
               target="_blank"
-              href="https://developers.docusign.com/esign-rest-api/code-examples"
+              href={t("APICodeExamplesLink")}
               rel="noopener noreferrer"
             >
-              {t("APICodeExamplesLink")}
+              <strong>{t("APICodeExamples")}</strong>
             </a>
           </p>
-          <p><strong>{t("ESignatureDocumentation")}</strong><br></br>
+          <p>
             <a
               target="_blank"
-              href="https://developers.docusign.com/esign-rest-api/reference"
+              href={t("ESignatureDocumentationLink")}
               rel="noopener noreferrer"
             >
-              {t("ESignatureDocumentationLink")}
+              <strong>{t("ESignatureDocumentation")}</strong>
             </a>
           </p>
-          <p><strong>{t("DeveloperCommunity")}</strong><br></br>
+          <p>
             <a
               target="_blank"
-              href="http://stackoverflow.com/questions/tagged/docusignapi"
+              href={t("DeveloperCommunityLink")}
               rel="noopener noreferrer"
             >
-              {t("DeveloperCommunityLink")}
+              <strong>{t("DeveloperCommunity")}</strong>
             </a>
           </p>
         </div>
@@ -70,10 +69,6 @@ export const About = () => {
       {parse(t("AboutDocuSign"))}
 
       <br></br>
-
-      <p>
-        <a href="http://www.docusign.com/"> {t("DocuSignLink")}</a>
-      </p>
     </div>
   );
 };

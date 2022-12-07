@@ -151,7 +151,7 @@ class DsDocument:
 
         # Create the envelope definition
         envelope_definition = EnvelopeDefinition(
-            email_subject='Register for extra-curricular activity'
+            email_subject='Register for extracurricular activity'
         )
 
         # Create the document

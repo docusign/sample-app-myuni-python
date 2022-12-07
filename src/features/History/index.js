@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { List } from "./List";
+import { ApiDescription } from "./components/ApiDescription";
 import { useTranslation } from "react-i18next";
 import * as studentsAPI from "../../api/studentsAPI";
 import { download } from "../../api/download";
@@ -45,27 +46,35 @@ export const History = () => {
 
   if (submissionsList.length === 0) {
     return (
-      <div className="text-center">
-        <br></br>
-        <h3>{t("EmptyListMessage")}</h3>
-        <br></br>
+      <div className="row">
+        <div className="col-lg-6">
+          <div className="text-center">
+            <br></br>
+            <h3>{t("EmptyListMessage")}</h3>
+            <br></br>
+          </div>
+        </div>
       </div>
     );
   }
   return (
     <section className="container-fluid content-section">
       <h2 className="h2">{t("SubmissionsStatus")}</h2>
-      <div className="table-holder">
-        <table className="table table-striped">
-          <thead>
-            <tr>
-              <th scope="col">{t("Subject")}</th>
-              <th scope="col">{t("Applicant")}</th>
-              <th scope="col">{t("Last Updated")}</th>
-            </tr>
-          </thead>
-          <List list={submissionsList} onClick={onClick} />
-        </table>
+      <div className="row">
+        <div className="col-lg-6">
+          <div className="table-holder">
+            <table className="table table-striped">
+              <thead>
+                <tr>
+                  <th scope="col">{t("Subject")}</th>
+                  <th scope="col">{t("Applicant")}</th>
+                  <th scope="col">{t("Last Updated")}</th>
+                </tr>
+              </thead>
+              <List list={submissionsList} onClick={onClick} />
+            </table>
+          </div>
+        </div>
       </div>
     </section>
   );

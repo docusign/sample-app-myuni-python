@@ -53,4 +53,3 @@ export const LoginWithJWT = props => {
         </Modal>
     )
 }
-

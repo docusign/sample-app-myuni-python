@@ -140,7 +140,7 @@ export const Home = () => {
           <h2 className="h2 cta-title">{t("Footer1")}</h2>
           <div className="cta-button-holder">
             <a
-              href="https://go.docusign.com/sandbox/productshot?elq=16799"
+              href="https://go.docusign.com/o/sandbox/"
               target="_blank"
               rel="noopener noreferrer"
             >

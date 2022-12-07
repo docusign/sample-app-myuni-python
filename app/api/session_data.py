@@ -35,3 +35,12 @@ class SessionData:
         expires_date = session.get('expires_date')
         date_now = int(round(datetime.utcnow().timestamp()))
         return expires_date and expires_date > date_now + TOKEN_REPLACEMENT_IN_SECONDS
+
+    @staticmethod
+    def set_ds_documents(envelope_id):
+        documents = session.get('ds_documents')
+        if not documents:
+            session['ds_documents'] = [envelope_id]
+        else:
+            documents.append(envelope_id)
+            session['ds_documents'] = documents

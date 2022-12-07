@@ -57,7 +57,7 @@ export const RequestForm = ({
             name="activity"
             label={t("Activity")}
             options={activities.map(activity => ({
-              text: `${activity.category} - ${activity.name} (${activity.price}$)`
+              text: `${activity.category} - ${activity.name} ($${activity.price})`
             }))}
             onChange={onSelect}
             error={errors.activity}

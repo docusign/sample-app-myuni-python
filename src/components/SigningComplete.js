@@ -43,7 +43,7 @@ export const SigningComplete = () => {
             <div className="row">
               <div className="col-md-6 col-md-offset-3">
                 <a
-                  href="https://go.docusign.com/sandbox/productshot?elq=16799"
+                  href="https://go.docusign.com/o/sandbox/"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -78,7 +78,7 @@ export const SigningComplete = () => {
             <p>
               <strong>{t("CancelEvent.Name")}</strong>
               <br></br>
-              {t("CancelEvent.Decription")}
+              {parse(t("CancelEvent.Decription"))}
             </p>
 
             <p>
@@ -119,7 +119,7 @@ export const SigningComplete = () => {
 
             <p>
               <a
-                href="https://developers.docusign.com/esign-rest-api/guides/concepts/embedding"
+                href="https://developers.docusign.com/docs/esign-rest-api/esign101/concepts/embedding/"
                 target="_blank"
                 rel="noopener noreferrer"
               >

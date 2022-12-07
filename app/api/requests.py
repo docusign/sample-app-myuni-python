@@ -8,6 +8,7 @@ from app.document import DsDocument
 from app.envelope import Envelope
 from app.transcript import render_transcript
 
+from .session_data import SessionData
 
 requests = Blueprint('requests', __name__)
 
@@ -36,11 +37,7 @@ def minor_major():
     except ApiException as exc:
         return process_error(exc)
 
-    user_documents = session.get('ds_documents')
-    if not user_documents:
-        session['ds_documents'] = [envelope_id]
-    else:
-        session['ds_documents'].append(envelope_id)
+    SessionData.set_ds_documents(envelope_id)
 
     try:
         # Get the recipient view
@@ -88,7 +85,7 @@ def download_transcript(): # pylint: disable-msg=inconsistent-return-statements
 @cross_origin()
 @check_token
 def payment_activity():
-    """Request for extra-curricular activity"""
+    """Request for extracurricular activity"""
     try:
         req_json = request.get_json(force=True)
     except TypeError:
@@ -114,11 +111,7 @@ def payment_activity():
     except ApiException as exc:
         return process_error(exc)
 
-    user_documents = session.get('ds_documents')
-    if not user_documents:
-        session['ds_documents'] = [envelope_id]
-    else:
-        session['ds_documents'].append(envelope_id)
+    SessionData.set_ds_documents(envelope_id)
 
     try:
         # Get the recipient view
@@ -139,9 +132,7 @@ def envelope_list():
     except TypeError:
         return jsonify(message='Invalid json input'), 400
 
-    user_documents = session.get('ds_documents')
-    if not user_documents:
-        user_documents = []
+    user_documents = session.get('ds_documents', [])
 
     try:
         envelopes = Envelope.list(envelope_args, user_documents, session)

@@ -15,8 +15,8 @@ const initialState = {
     firstName: "",
     lastName: "",
     email: "",
-    minorField: "",
-    majorField: ""
+    majorField: "",
+    minorField: ""
   }
 };
 
@@ -44,8 +44,8 @@ export const RequestMajorMinorChangePage = () => {
         first_name: request.firstName,
         last_name: request.lastName,
         email: request.email,
-        minor: request.minorField,
-        major: request.majorField
+        major: request.majorField,
+        minor: request.minorField
       }
     };
     setRequesting(true);
@@ -94,7 +94,7 @@ export const RequestMajorMinorChangePage = () => {
     if (!lastName) {
       errors.lastName = t("Error.LastName");
     }
-    if (!email) {
+    if (!email || !(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(email))) {
       errors.email = t("Error.Email");
     }
     if (!majorField && !minorField) {
