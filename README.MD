@@ -9,7 +9,7 @@ MyUni demonstrates the following:
 
 1. Authentication with DocuSign via [JSON Web Token (JWT) Grant](https://developers.docusign.com/platform/auth/jwt/).
 2. **Change Your Major or Minor:** ([Source](./app/api/requests.py))  
-   This example uses the DocuSign [eSignature REST API](https://developers.docusign.com/docs/esign-rest-api) to send an envelope based on an HTML template with prefilled user data and then initiate an embedded signing ceremony for a single signer. ([AutoPlace](https://developers.docusign.com/docs/esign-rest-api/esign101/concepts/tabs/auto-place/)) anchor text is used to position the signing fields in the documents.
+   This example uses the DocuSign [eSignature REST API](https://developers.docusign.com/docs/esign-rest-api) to send an envelope based on an HTML template with prefilled user data and then initiate an embedded signing ceremony for a single signer. [AutoPlace](https://developers.docusign.com/docs/esign-rest-api/esign101/concepts/tabs/auto-place/) (anchor text) is used to position the signing fields in the documents.
 3. **Request an Unofficial Transcript:** ([Source](./app/api/clickwrap.py))  
    This example demonstates the DocuSign [Click API](https://developers.docusign.com/docs/click-api/). Once the user submits the form, the app uses a clickwrap to present a modal dialog requesting confirmation before allowing the user to download an unofficial transcript.
    [More information about ClickAPI](https://developers.docusign.com/docs/click-api) 
