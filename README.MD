@@ -7,14 +7,14 @@ MyUni is a DocuSign sample application written in Python 3.7 (server) and React 
  
 MyUni demonstrates the following:
 
-1. Authentication with DocuSign via [JSON Web Token (JWT) Grant](https://developers.docusign.com/esign-rest-api/guides/authentication/oauth2-jsonwebtoken).
+1. Authentication with DocuSign via [JSON Web Token (JWT) Grant](https://developers.docusign.com/platform/auth/jwt/).
 2. **Change Your Major or Minor:** ([Source](./app/api/requests.py))  
-   This example uses the DocuSign [eSignature REST API](https://developers.docusign.com/esign-rest-api) to send an envelope based on an HTML template with prefilled user data and then initiate an embedded signing ceremony for a single signer. ([AutoPlace](https://support.docusign.com/en/guides/AutoPlace-New-DocuSign-Experience)) anchor text is used to position the signing fields in the documents.
+   This example uses the DocuSign [eSignature REST API](https://developers.docusign.com/docs/esign-rest-api) to send an envelope based on an HTML template with prefilled user data and then initiate an embedded signing ceremony for a single signer. ([AutoPlace](https://developers.docusign.com/docs/esign-rest-api/esign101/concepts/tabs/auto-place/)) anchor text is used to position the signing fields in the documents.
 3. **Request an Unofficial Transcript:** ([Source](./app/api/clickwrap.py))  
-   This example demonstates the DocuSign [Click API](https://developers.docusign.com/click-api/guides). Once the user submits the form, the app uses a clickwrap to present a modal dialog requesting confirmation before allowing the user to download an unofficial transcript.
-   [More information about ClickAPI](https://developers.docusign.com/click-api) 
+   This example demonstates the DocuSign [Click API](https://developers.docusign.com/docs/click-api/). Once the user submits the form, the app uses a clickwrap to present a modal dialog requesting confirmation before allowing the user to download an unofficial transcript.
+   [More information about ClickAPI](https://developers.docusign.com/docs/click-api) 
 4. **Sign Up for Extracurricular Activities:** ([Source](./app/api/requests.py))  
-   This example uses the DocuSign [eSignature REST API](https://developers.docusign.com/esign-rest-api), demonstrating how to use envelopes combined with payment gateways. The example sends an envelope based on HTML template and adds payment feature to the document, so after signing, the user will be able to pay for their chosen activity.  
+   This example uses the DocuSign [eSignature REST API](https://developers.docusign.com/docs/esign-rest-api), demonstrating how to use envelopes combined with payment gateways. The example sends an envelope based on HTML template and adds payment feature to the document, so after signing, the user will be able to pay for their chosen activity.  
    To use this example, create a test payments gateway for your developer account.
 
 ## Installation
