@@ -58,10 +58,10 @@ export const History = () => {
     );
   }
   return (
-    <section className="container-fluid content-section">
+    <section className="container-fluid content-section h-100">
       <h2 className="h2">{t("SubmissionsStatus")}</h2>
       <div className="row">
-        <div className="col-lg-6">
+        <div className="col-lg">
           <div className="table-holder">
             <table className="table table-striped">
               <thead>

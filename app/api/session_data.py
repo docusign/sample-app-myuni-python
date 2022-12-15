@@ -38,9 +38,9 @@ class SessionData:
 
     @staticmethod
     def set_ds_documents(envelope_id):
-        documents = session.get('ds_documents')
-        if not documents:
+        if not session.get('ds_documents'):
             session['ds_documents'] = [envelope_id]
         else:
+            documents = session['ds_documents']
             documents.append(envelope_id)
             session['ds_documents'] = documents
