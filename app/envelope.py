@@ -103,6 +103,6 @@ class Envelope:
         (dirname, filename) = os.path.split(file_path)
         return send_from_directory(
             directory=dirname,
-            filename=filename,
+            path=filename,
             as_attachment=True
         )

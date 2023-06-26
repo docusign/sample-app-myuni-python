@@ -15,8 +15,9 @@ export const ListItem = ({ item, onClick }) => {
           <button
             className="dropdown-toggle"
             type="button"
-            id="options3"
-            data-toggle="dropdown"
+            id="dropdownMenuButton"
+            data-bs-toggle="dropdown"
+            data-bs-target="#dropdown"
             aria-haspopup="true"
             aria-expanded="false"
           >
@@ -24,7 +25,7 @@ export const ListItem = ({ item, onClick }) => {
           </button>
           <div
             className="dropdown-menu dropdown-menu-right"
-            aria-labelledby="options3"
+            aria-labelledby="dropdownMenuButton"
           >
             <a href="#/"
               className="dropdown-item"
