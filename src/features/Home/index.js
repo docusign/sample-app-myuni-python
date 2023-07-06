@@ -117,9 +117,11 @@ export const Home = () => {
                 </span>
                 <div className="card-info-button-holder">
                   { logged ?
-                    <button className="btn btn-danger" onClick={(event) => handlePayment(event, "/requestExtracurricularActivity")}>
-                      {t("Card3.Button")}
-                    </button>
+                    <Link to="/requestExtracurricularActivity">
+                      <button className="btn btn-danger">
+                        {t("Card3.Button")}
+                      </button>
+                    </Link>
                   :
                     <button className="btn btn-danger" 
                     onClick={(event) => handleClick(event, "/requestExtracurricularActivity")}>

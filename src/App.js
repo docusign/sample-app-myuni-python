@@ -1,6 +1,7 @@
 import React, { Suspense, useState, useEffect } from "react";
-import { Route, Switch } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import Layout from "./components/Layout";
+import { Logout } from "./components/Logout";
 import { About } from "./features/About";
 import { History } from "./features/History";
 import { Home } from "./features/Home";
@@ -10,7 +11,6 @@ import { RequestExtracurricularActivityPage } from "./features/RequestExtracurri
 import { SigningComplete } from "./components/SigningComplete.js";
 import { logOut, getStatus } from "./api/auth";
 import { Callback } from "./components/Callback";
-import history from "./api/history";
 import "./assets/scss/main.scss";
 import LoggedUserContext from "./contexts/logged-user/logged-user.context";
 
@@ -28,30 +28,27 @@ const App = () => {
 
   async function handleLogOut() {
     await logOut();
-    history.push("/");
     getStatus(setLogged, setAuthType);
   }
 
   const routes = (
-    <Switch>
-      <Route path="/history" component={History} />
-      <Route path="/about" component={About} />
+    <Routes>
+      <Route path="/history" element={<History/>} />
+      <Route path="/about" element={<About/>} />
       <Route
         path="/requestMajorMinorChange"
-        component={RequestMajorMinorChangePage}
+        element={<RequestMajorMinorChangePage/>}
       />
-      <Route path="/requestTranscript" component={RequestTranscriptPage} />
+      <Route path="/requestTranscript" element={<RequestTranscriptPage/>} />
       <Route
         path="/requestExtracurricularActivity"
-        component={RequestExtracurricularActivityPage}
+        element={<RequestExtracurricularActivityPage/>}
       />
-      <Route path="/" exact component={Home} />
-      <Route path="/signing_complete" component={SigningComplete} />
-      <Route path="/callback" component={Callback}/>
-      <Route path="/logout" render={() => {
-        handleLogOut();
-      }} />
-    </Switch>
+      <Route path="/" exact element={<Home/>} />
+      <Route path="/signing_complete" element={<SigningComplete/>} />
+      <Route path="/callback" element={<Callback/>}/>
+      <Route path="/logout" element={<Logout handleLogOut={handleLogOut}/>} />
+    </Routes>
   );
 
   return (
