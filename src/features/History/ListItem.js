@@ -16,8 +16,8 @@ export const ListItem = ({ item, onClick }) => {
             className="dropdown-toggle"
             type="button"
             id="dropdownMenuButton"
-            data-bs-toggle="dropdown"
-            data-bs-target="#dropdown"
+            data-toggle="dropdown"
+            data-target="#dropdown"
             aria-haspopup="true"
             aria-expanded="false"
           >
