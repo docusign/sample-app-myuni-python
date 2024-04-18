@@ -4,17 +4,19 @@ import { useTranslation } from "react-i18next";
 import { jwtAuth, logOut, getStatus } from "../api/auth";
 import parse from "html-react-parser";
 import LoggedUserContext from "../contexts/logged-user/logged-user.context";
+import { useNavigate } from "react-router-dom";
 
 export const LoginWithJWT = props => {
     const [errors, setErrors] = useState({});
     const { setLogged, setAuthType } = useContext(LoggedUserContext);
     const { t } = useTranslation("JWTModal");
+    const navigate = useNavigate();
 
     async function handleClick(event) {
         event.preventDefault();
         try {
             await logOut();
-            await jwtAuth();
+            await jwtAuth(navigate);
             await getStatus(setLogged, setAuthType);
             handleClose();
         } catch (error) {

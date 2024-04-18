@@ -1,11 +1,10 @@
 import React, {useContext} from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import image from "../../assets/img/img-01.svg";
 import background from "../../assets/img/img-04.jpg";
 import { useTranslation } from "react-i18next";
 import parse from "html-react-parser";
 import { checkPayment } from "../../api/auth";
-import history from "../../api/history";
 import LoggedUserContext from "../../contexts/logged-user/logged-user.context";
 import ModalContext from "../../contexts/modal/modal.context";
 
@@ -13,6 +12,7 @@ export const Home = () => {
   const { t } = useTranslation("Home");
   const { logged, setRedirectUrl, setShowJWTModal, authType } = useContext(LoggedUserContext);
   const { setModalShow } = useContext(ModalContext);
+  const navigate = useNavigate();
 
   function handleClick(event, redirectUrl) {
     event.preventDefault();
@@ -23,12 +23,12 @@ export const Home = () => {
   async function handlePayment(event, redirectUrl) {
     event.preventDefault()
     if (authType === "code_grant"){
-      const response = await checkPayment(setShowJWTModal)
+      const response = await checkPayment(setShowJWTModal, navigate)
       if (response.status === 200) {
-        history.push(redirectUrl);
+        navigate(redirectUrl);
       }
     } else {
-      history.push(redirectUrl);
+      navigate(redirectUrl);
     }
   }
 
@@ -117,11 +117,9 @@ export const Home = () => {
                 </span>
                 <div className="card-info-button-holder">
                   { logged ?
-                    <Link to="/requestExtracurricularActivity">
-                      <button className="btn btn-danger">
-                        {t("Card3.Button")}
-                      </button>
-                    </Link>
+                    <button className="btn btn-danger" onClick={(event) => handlePayment(event, "/requestExtracurricularActivity")}>
+                      {t("Card3.Button")}
+                    </button>
                   :
                     <button className="btn btn-danger" 
                     onClick={(event) => handleClick(event, "/requestExtracurricularActivity")}>
