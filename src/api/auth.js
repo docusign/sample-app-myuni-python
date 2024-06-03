@@ -1,5 +1,4 @@
 import { handleError } from "./apiHelper";
-import history from "./history";
 import axios from './interceptors';
 
 export async function codeGrantAuth(redirectUrl) {
@@ -13,7 +12,7 @@ export async function codeGrantAuth(redirectUrl) {
     }
 }
 
-export async function callback() {
+export async function callback(navigate) {
     try {
         const urlParams = new URLSearchParams(window.location.search);
         const code = urlParams.get('code');
@@ -28,7 +27,7 @@ export async function callback() {
         );
         return response.data.message
     } catch (error) {
-        history.push("/");
+        navigate("/");
         handleError(error);
     }
 }
@@ -45,7 +44,6 @@ export async function logOut() {
             }
         );
     } catch (error) {
-        history.push('/');
         handleError(error);
     }
 }
@@ -65,7 +63,7 @@ export async function getStatus(setStatus, setAuthType) {
     }
 }
 
-export async function jwtAuth() {
+export async function jwtAuth(navigate) {
     try {
         await axios.get(
             process.env.REACT_APP_API_BASE_URL + "/jwt_auth",
@@ -74,21 +72,21 @@ export async function jwtAuth() {
             }
         );
     } catch (error){
-        history.push('/');
+        navigate('/');
         handleError(error);
     }
 }
 
-export async function checkUnlogged(logged, setStatus, setAuthType) {
+export async function checkUnlogged(logged, setStatus, setAuthType, navigate) {
     if (!logged) {
-        await jwtAuth();
+        await jwtAuth(navigate);
         await getStatus(setStatus, setAuthType)
     }
 }
 
-export async function completeCallback(setShowAlert, setStatus, setAuthType, setShowJWTModal) {
+export async function completeCallback(setShowAlert, setStatus, setAuthType, setShowJWTModal, navigate) {
     try {
-        const message = await callback();
+        const message = await callback(navigate);
         const redirectUrl = localStorage.getItem("redirectUrl")
         
         getStatus(setStatus, setAuthType);
@@ -96,15 +94,15 @@ export async function completeCallback(setShowAlert, setStatus, setAuthType, set
             setShowAlert(true);
         }
         else if (redirectUrl === '/requestExtracurricularActivity') {
-            await checkPayment(setShowJWTModal);
+            await checkPayment(setShowJWTModal, navigate);
         }
-        history.push(redirectUrl);
+        navigate(redirectUrl);
     } catch (error){
         handleError(error, setShowJWTModal)
     }
 }
 
-export async function checkPayment(setShowJWTModal) {
+export async function checkPayment(setShowJWTModal, navigate) {
     try {
         const response = await axios.get(
             process.env.REACT_APP_API_BASE_URL + "/check_payment",
@@ -114,7 +112,7 @@ export async function checkPayment(setShowJWTModal) {
         );
         return response;
     } catch (error){
-        history.push('/');
+        navigate('/');
         handleError(error, setShowJWTModal);
     }
 }

@@ -27,8 +27,8 @@ export const Header = () => {
           <button
             className="navbar-toggler collapsed"
             type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarNav"
+            data-toggle="collapse"
+            data-target="#navbarNav"
             aria-controls="navbarNav"
             aria-expanded="false"
             aria-label="Toggle navigation"

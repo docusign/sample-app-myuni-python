@@ -3,9 +3,9 @@ import { Modal, Container, Button } from "react-bootstrap";
 import { InputRadio } from "./InputRadio";
 import { useTranslation } from "react-i18next";
 import { codeGrantAuth, jwtAuth, getStatus } from "../api/auth";
-import history from "../api/history";
 import parse from "html-react-parser";
 import LoggedUserContext from "../contexts/logged-user/logged-user.context";
+import { useNavigate } from "react-router-dom";
 
 
 const initialState = {
@@ -22,6 +22,7 @@ export const Login = (props) => {
     const { redirectUrl, setLogged, setAuthType } = useContext(LoggedUserContext);
     const { t } = useTranslation("Modal");
     const loginOptions = t("LoginOptions", { returnObjects: true });
+    const navigate = useNavigate();
 
     function handleChange(event) {
         const { name, value } = event.target;
@@ -45,9 +46,9 @@ export const Login = (props) => {
             if (request.loginOption === loginOptions[0]) {
                 await codeGrantAuth(redirectUrl);
             } else if (request.loginOption === loginOptions[1]){
-                await jwtAuth();
+                await jwtAuth(navigate);
                 await getStatus(setLogged, setAuthType);
-                history.push(redirectUrl);
+                navigate(redirectUrl);
                 handleClose();
             }
         } catch(error) {
