@@ -7,7 +7,7 @@ docusign-esign==3.25.1
 Flask==3.0.3
 Flask-Session==0.8.0
 flask-wtf==1.2.1
-flask-cors==4.0.0
+flask-cors==4.0.1
 idna==3.7
 itsdangerous==2.2.0
 Jinja2==3.1.3
