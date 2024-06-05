@@ -5,12 +5,11 @@ import parse from "html-react-parser";
 export const ApiDescription = () => {
   const { t } = useTranslation("History");
   const style = {
-    display: "flex",
-    alignItems: "flex-start"
+    // minWidth: 400
   };
 
   return (
-    <div className="col-lg-6 pt-2 pb-4" style={style}>
+    <div className="col-lg-5" style={style}>
       <div id="accordion">
         <div className="card">
           <div className="card-header" id="headingOne">
