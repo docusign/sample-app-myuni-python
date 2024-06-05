@@ -20,7 +20,7 @@ export const Header = () => {
             to="/"
           >
             <span className="navbar-brand-image d-inline-block">
-              <img src={svg} alt="DocuSign logo" />
+              <img src={svg} alt="Docusign logo" />
             </span>
             {t("ApplicationName")}
           </Link>
