@@ -52,7 +52,7 @@ class DsDocument:
         ).decode('ascii')
 
         # Create the document model
-        document = Document(  # Create the DocuSign document object
+        document = Document(  # Create the Docusign document object
             document_base64=base64_file_content,
             name='Change minor/major field',
             file_extension='html',
