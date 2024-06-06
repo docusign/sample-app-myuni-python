@@ -47,7 +47,7 @@ export const History = () => {
   if (submissionsList.length === 0) {
     return (
       <div className="row">
-        <div className="col-lg-6">
+        <div className="col-lg-12">
           <div className="text-center">
             <br></br>
             <h3>{t("EmptyListMessage")}</h3>
@@ -61,7 +61,7 @@ export const History = () => {
     <section className="container-fluid content-section">
       <h2 className="h2">{t("SubmissionsStatus")}</h2>
       <div className="row">
-        <div className="col-lg-6">
+        <div className="col-lg-7">
           <div className="table-holder">
             <table className="table table-striped">
               <thead>
@@ -75,6 +75,7 @@ export const History = () => {
             </table>
           </div>
         </div>
+        <ApiDescription />
       </div>
     </section>
   );
