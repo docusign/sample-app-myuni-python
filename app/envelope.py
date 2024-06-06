@@ -76,6 +76,9 @@ class Envelope:
         access_token = session.get('access_token')
         account_id = session.get('account_id')
 
+        if not access_token or not account_id:
+            return []
+
         ds_client = DsClient.get_configured_instance(access_token)
         envelope_api = EnvelopesApi(ds_client)
         envelopes_info = envelope_api.list_status_changes(
