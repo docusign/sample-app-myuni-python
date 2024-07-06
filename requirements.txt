@@ -1,4 +1,4 @@
-certifi==2024.2.2
+certifi==2024.7.4
 cffi==1.16.0
 chardet==5.2.0
 Click==8.1.7
