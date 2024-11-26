@@ -8,7 +8,7 @@
     "@testing-library/react": "^14.3.1",
     "@testing-library/user-event": "^14.5.2",
     "axios": "^1.7.7",
-    "bootstrap": "^4.6.2",
+    "bootstrap": "^5.0.0",
     "history": "^5.3.0",
     "html-react-parser": "^5.1.18",
     "i18next": "^23.16.5",
