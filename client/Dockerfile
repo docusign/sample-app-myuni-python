@@ -5,15 +5,15 @@ ENV REACT_APP_API_BASE_URL=$REACT_APP_API_BASE_URL
 
 WORKDIR /app
 COPY .env ./
-COPY ./package.json ./yarn.lock ./
+COPY ./client/package.json ./client/yarn.lock ./
 RUN npm install
 
-COPY . .
+COPY ./client/ .
 
 RUN npm run build
 
 # Run stage
 FROM --platform=linux/amd64 nginx:1.23-alpine
 COPY --from=base /app/build /var/www/app
-COPY ./nginx/conf/ /etc/nginx/conf.d
+COPY ./client/nginx/conf/ /etc/nginx/conf.d
 EXPOSE 80 443

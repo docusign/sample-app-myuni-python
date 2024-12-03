@@ -64,6 +64,7 @@ export async function getStatus(setStatus, setAuthType) {
 }
 
 export async function jwtAuth(navigate) {
+    console.log('process.env',process.env)
     try {
         await axios.get(
             process.env.REACT_APP_API_BASE_URL + "/jwt_auth",
