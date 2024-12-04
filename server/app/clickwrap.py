@@ -87,7 +87,7 @@ class Clickwrap:
         # Make a GET call to the clickwraps endpoint to retrieve all the users
         # that have agreed to a clickwrap
         access_token = session.get('access_token')
-        account_id = session.get('account_id')
+        account_id = os.environ.get('API_ACCOUNT_ID')
 
         ds_client = DsClient.get_configured_instance(access_token, CLICKWRAP_BASE_HOST)
 
