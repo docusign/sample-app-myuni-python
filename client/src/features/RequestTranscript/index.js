@@ -87,10 +87,8 @@ export const RequestTranscriptPage = () => {
   }
 
   function goToSigningComplete(event) {
-    if (event.data.type === "CLOSE_HAS_AGREED") {
       window.top.location.href =
         process.env.REACT_APP_DS_RETURN_URL + "/signing_complete";
-    }
   }
 
   function handleChange(event) {
