@@ -1,12 +1,15 @@
 from flask import Flask
 from flask_cors import CORS
 from dotenv import load_dotenv
+import os
 
 from app.api import auth, clickwrap, requests, common
 
 load_dotenv()
 
 URL_PREFIX = '/api'
+print(os.environ)
+print('=====')
 
 app = Flask(__name__)
 app.config.from_pyfile("config.py")
